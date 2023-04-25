@@ -1,0 +1,8 @@
+1. import Helvetica
+2. create button component
+3. use rems
+4. display pattern
+5. change pattern
+6. play pattern
+7. play sound from pattern
+8. change background

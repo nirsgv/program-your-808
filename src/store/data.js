@@ -65,6 +65,7 @@ export const data = [
         },
       }),
     ],
+    id: 1,
   },
   {
     artist: "Cybotron",
@@ -74,6 +75,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 2,
   },
   {
     artist: "A Guy Called Gerald",
@@ -83,6 +85,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 3,
   },
   {
     artist: "Adonis",
@@ -92,6 +95,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 4,
   },
   {
     artist: "Hashim",
@@ -101,6 +105,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 5,
   },
   {
     artist: "Freeez",
@@ -110,6 +115,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 6,
   },
   {
     artist: "Warp 9",
@@ -119,6 +125,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 7,
   },
   {
     artist: "Mantronix",
@@ -128,6 +135,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 8,
   },
   {
     artist: "C.O.D",
@@ -137,6 +145,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 9,
   },
   {
     artist: "B.B. & Q. Band",
@@ -146,6 +155,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 10,
   },
   {
     artist: "Marvin Gaye",
@@ -155,6 +165,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 11,
   },
   {
     artist: "Loose Ends",
@@ -164,6 +175,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 12,
   },
   {
     artist: "Planet Patrol",
@@ -173,6 +185,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 13,
   },
   {
     artist: "The S.O.S Band",
@@ -182,6 +195,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 14,
   },
   {
     artist: "LL Cool J",
@@ -191,6 +205,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 15,
   },
   {
     artist: "Yellow Magic Orchestra",
@@ -200,6 +215,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 16,
   },
   {
     artist: "Strafe",
@@ -209,6 +225,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 17,
   },
   {
     artist: "Drexciya",
@@ -218,6 +235,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 18,
   },
   {
     artist: "Paul Hardcastle",
@@ -227,6 +245,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 19,
   },
   {
     artist: "Newcleus",
@@ -236,6 +255,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 20,
   },
   {
     artist: "Midnight Star",
@@ -245,6 +265,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 21,
   },
   {
     artist: "Egyptian Lover",
@@ -254,6 +275,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 22,
   },
   {
     artist: "UR",
@@ -263,6 +285,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 23,
   },
   {
     artist: "Surface",
@@ -272,6 +295,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 24,
   },
   {
     artist: " Kleeer",
@@ -281,6 +305,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 25,
   },
   {
     artist: "Charanjit Singh",
@@ -290,6 +315,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 26,
   },
   {
     artist: "Metro",
@@ -299,6 +325,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 27,
   },
   {
     artist: "Joyce Sims",
@@ -308,6 +335,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 28,
   },
   {
     artist: "Keith Sweat",
@@ -317,6 +345,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 29,
   },
   {
     artist: "Alexander Robotnick",
@@ -326,6 +355,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 30,
   },
   {
     artist: "Oppenheimer Analysis",
@@ -335,6 +365,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 31,
   },
   {
     artist: "Beastie Boys",
@@ -344,6 +375,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 32,
   },
   {
     artist: "Pretty Tony",
@@ -353,6 +385,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 33,
   },
   {
     artist: "Connie",
@@ -362,6 +395,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 34,
   },
   {
     artist: "Dopplereffekt",
@@ -371,6 +405,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 35,
   },
   {
     artist: "Ta La Rock",
@@ -380,6 +415,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 36,
   },
   {
     artist: "Gwen Guthrie",
@@ -389,6 +425,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 37,
   },
   {
     artist: "I-F",
@@ -398,6 +435,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 38,
   },
   {
     artist: "Klein & MBO",
@@ -407,6 +445,7 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 39,
   },
   {
     artist: "52nd Street",
@@ -416,6 +455,6 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    id: 40,
   },
 ];
-console.log(data);

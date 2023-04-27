@@ -75,6 +75,29 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    parts: [
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6, 10, 13],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+    ],
+
     id: 2,
   },
   {
@@ -85,6 +108,29 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    parts: [
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6, 10, 13],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+    ],
+
     id: 3,
   },
   {
@@ -95,6 +141,29 @@ export const data = [
     year: "",
     label: "",
     country: "",
+    parts: [
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+      new Part({
+        instruments: INSTRUMENTS,
+        notes: {
+          BD: [0, 6, 10, 13],
+          SD: [4, 12],
+          CP: [4, 12],
+          CB: [0, 2, 4, 6, 7, 9, 11, 12, 14],
+          CH: [0, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+        },
+      }),
+    ],
+
     id: 4,
   },
   {

@@ -1,5 +1,5 @@
 <template>
-  <div type="checkbox" class="button" :class="{ checked }">
+  <div type="checkbox" class="button" :class="{ checked }" @click="$emit('click')">
     <div class="top">
       <span class="light"></span>
     </div>

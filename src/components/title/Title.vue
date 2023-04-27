@@ -1,8 +1,8 @@
 <template>
   <div class="details">
     <ul class="big">
-      <Button msg="Welcome to Your Vue.js App" :checked="true" />
-      <Button msg="Welcome to Your Vue.js App" :checked="false" />
+      <Button :checked="true" @click="routerNext" />
+      <Button :checked="false" @click="routerPrev" />
     </ul>
     <header class="title">
       <h2>{{ item.artist }}</h2>
@@ -21,6 +21,8 @@
 <script>
 import { Button } from "@/components";
 import { TRACK_INFO } from "@/store/data.js";
+import { mapActions } from "vuex";
+
 export default {
   name: "Title",
   components: {
@@ -30,6 +32,17 @@ export default {
     checked: Boolean,
     part: Number,
     item: Object,
+  },
+  methods: {
+    ...mapActions(["next", "prev"]),
+    routerNext() {
+      this.$router.push({ path: `/${this.item.id + 1}` });
+    },
+    routerPrev() {
+      if ( this.item.id > 1) {
+        this.$router.push({ path: `/${this.item.id - 1}` });
+      }
+    },
   },
   computed: {
     trackInfo() {

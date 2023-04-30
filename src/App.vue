@@ -25,7 +25,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: var(--bkg1);
-  transition: background-color .1s ease-out;
+  transition: background-color 0s ease-in-out;
   height: 100%;
 }
 main {

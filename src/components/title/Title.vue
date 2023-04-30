@@ -1,9 +1,11 @@
 <template>
-  <div class="details">
-    <ul class="big">
-      <Button :checked="true" @click="routerNext" />
-      <Button :checked="false" @click="routerPrev" />
-    </ul>
+  <header class="details">
+    <nav>
+      <ul class="big">
+        <Button :checked="true" @click="routerNext" />
+        <Button :checked="false" @click="routerPrev" />
+      </ul>
+    </nav>
     <header class="title">
       <h2>{{ item.artist }}</h2>
       <h2>{{ item.track }}</h2>
@@ -15,7 +17,7 @@
         <span> {{ item[field.toLowerCase()] }}</span>
       </h4>
     </aside>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -39,7 +41,7 @@ export default {
       this.$router.push({ path: `/${this.item.id + 1}` });
     },
     routerPrev() {
-      if ( this.item.id > 1) {
+      if (this.item.id > 1) {
         this.$router.push({ path: `/${this.item.id - 1}` });
       }
     },
@@ -56,6 +58,8 @@ export default {
 .big {
   padding: 0;
   width: 150px;
+  display: flex;
+  gap: 0 var(--big-gap);
 }
 
 h4 {
@@ -68,9 +72,20 @@ h4 {
 }
 .details {
   text-align: left;
-  margin: 0.6rem 0;
+  margin: 0.6rem 0 3rem 0;
   font-weight: 800;
   display: flex;
+  gap: 0 2rem;
+  & > * {
+    &:before {
+      content: "";
+      display: block;
+      background: var(--black);
+      height: 1px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+  }
 }
 header,
 aside {

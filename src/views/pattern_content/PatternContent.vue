@@ -28,17 +28,24 @@ export default {
   },
   methods: {
     ...mapActions(["changeBkgColor", "setSelectedId"]),
+    updateStoreFromRoute() {
+      this.setSelectedId({ id: this.id });
+      this.changeBkgColor({ color: this.pattern.color });
+    },
   },
   created() {
-    this.setSelectedId({ id: this.id });
+    this.updateStoreFromRoute();
   },
   watch: {
     id: function () {
-      this.setSelectedId({ id: this.id });
-      this.changeBkgColor({color: this.pattern.color})
+      this.updateStoreFromRoute();
     },
-  }
+  },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.pat {
+  padding: 4rem 0;
+}
+</style>

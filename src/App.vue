@@ -3,13 +3,33 @@
     <main>
       <router-view />
     </main>
+    <div class="player">
+      <SpeedKnob :value="speed" @change-speed="changeSpeed" :min="min" :max="max"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { SpeedKnob } from "./components";
 export default {
   name: "App",
+  components: {
+    SpeedKnob,
+  },
+  data: function () {
+    return {
+      speed: 120,
+      min: 60,
+      max: 180,
+    };
+  },
+  methods: {
+    changeSpeed(e) {
+      console.log(Number(e.target.value));
+      this.speed = Number(e.target.value);
+    },
+  },
   computed: {
     ...mapGetters(["main_bkg_color"]),
   },
@@ -29,7 +49,15 @@ export default {
   height: 100%;
 }
 main {
-  max-width: 1020px;
+  max-width: 92rem;
   margin: 0 auto;
+}
+.player {
+  position: fixed;
+  width: 40rem;
+  height: 100vh;
+  bottom: 0;
+  background: red;
+  padding: 3rem;
 }
 </style>

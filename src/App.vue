@@ -4,7 +4,12 @@
       <router-view />
     </main>
     <div class="player">
-      <SpeedKnob :value="speed" @change-speed="changeSpeed" :min="min" :max="max"/>
+      <SpeedKnob
+        :value="speed"
+        @change-speed="changeSpeed"
+        :min="min"
+        :max="max"
+      />
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@
       <g
         id="knob"
         data-name="Layer 1"
-        :style="{ transform: `rotate(${(value - 120) * 3})deg)` }"
+        :style="{ transform: `rotate(${degree}deg)` }"
       >
         <path
           id="inner_1"
@@ -238,8 +238,13 @@ export default {
     min: Number,
     max: Number,
   },
-  computed() {
-    
+  computed: {
+    range() {
+      return this.max - this.min;
+    },
+    degree() {
+      return (this.value - this.range) * (155 / this.range) * 2;
+    },
   }
 };
 </script>

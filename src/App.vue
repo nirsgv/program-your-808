@@ -2,15 +2,17 @@
   <div id="app" :style="{ backgroundColor: main_bkg_color }">
     <main>
       <router-view />
+      <div class="player">
+        <SpeedKnob
+          :value="speed"
+          @change-speed="changeSpeed"
+          :min="min"
+          :max="max"
+          :step="step"
+        />
+      </div>
     </main>
-    <div class="player">
-      <SpeedKnob
-        :value="speed"
-        @change-speed="changeSpeed"
-        :min="min"
-        :max="max"
-      />
-    </div>
+    1
   </div>
 </template>
 
@@ -27,6 +29,7 @@ export default {
       speed: 120,
       min: 60,
       max: 180,
+      step: 8,
     };
   },
   methods: {

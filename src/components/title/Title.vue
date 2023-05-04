@@ -13,8 +13,14 @@
     <aside class="information">
       <header>Track Information</header>
       <h4 v-for="field in trackInfo" :key="field">
-        <span>{{ field }}</span>
-        <span> {{ item[field.toLowerCase()] }}</span>
+        <dl>
+          <dt>
+            <span class="definition">{{ field }}</span>
+          </dt>
+          <dd>
+            <span> {{ item[field.toLowerCase()] }}</span>
+          </dd>
+        </dl>
       </h4>
     </aside>
   </header>
@@ -57,16 +63,15 @@ export default {
 <style scoped lang="scss">
 .big {
   padding: 0;
-  width: 150px;
+  width: 12rem;
   display: flex;
   gap: 0 var(--big-gap);
 }
 
 h4 {
-  display: flex;
   font-size: 1.2rem;
+  font-weight: 400;
   span:first-of-type {
-    width: 26%;
     display: inline-block;
   }
 }
@@ -91,7 +96,17 @@ header,
 aside {
   display: inline-block;
 }
+header {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
 .information {
-  width: 50%;
+  flex-grow: 0.3;
+}
+dl {
+  /* display: flex; */
+}
+dt {
+  width: 10rem;
 }
 </style>

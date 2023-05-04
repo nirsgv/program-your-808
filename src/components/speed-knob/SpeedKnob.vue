@@ -221,7 +221,7 @@
       :min="min"
       :max="max"
       :value="value"
-      step="1"
+      :step="step"
       @input="(e) => $emit('change-speed', e)"
     />
   </div>
@@ -237,6 +237,7 @@ export default {
     },
     min: Number,
     max: Number,
+    step: Number,
   },
   computed: {
     range() {

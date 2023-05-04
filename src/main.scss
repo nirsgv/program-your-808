@@ -21,6 +21,11 @@ h2 {
 h4 {
   font-size: 2rem;
 }
+
+dt, dd {
+  display: inline-block;
+}
+
 :root {
   --white: #fff;
   --black: #000;

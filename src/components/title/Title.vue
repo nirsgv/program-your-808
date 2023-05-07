@@ -1,5 +1,5 @@
 <template>
-  <header class="details">
+  <header class="details main-bottom">
     <nav>
       <ul class="big">
         <Button :checked="true" @click="routerNext" />
@@ -77,7 +77,6 @@ h4 {
 }
 .details {
   text-align: left;
-  margin: 0.6rem 0 3rem 0;
   font-weight: 800;
   display: flex;
   gap: 0 2rem;
@@ -98,7 +97,6 @@ aside {
 }
 header {
   flex-grow: 1;
-  margin-bottom: 1rem;
 }
 .information {
   flex-grow: 0.3;

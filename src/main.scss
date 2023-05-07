@@ -6,12 +6,33 @@ html { font-size: 62.5%; }
   text-overflow: ellipsis;
 }
 
+.separator-start {
+  padding-top: 1.1rem;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 0.4rem;
+    position: absolute;
+    top: 0;
+    background-color: var(--black);
+  }
+}
+
+.main-bottom {
+  margin-bottom: var(--vertical-margin);
+}
+
+
 ul {
   list-style: none;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
 h2, h4 {
-  line-height: 1;
+  line-height: 1.05;
 }
 
 h2 {
@@ -32,4 +53,5 @@ dt, dd {
   --bkg1: #00bbb4;
   --gap: .4rem;
   --big-gap: 1.6rem;
+  --vertical-margin: 2rem;
 }

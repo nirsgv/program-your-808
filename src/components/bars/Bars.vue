@@ -1,5 +1,5 @@
 <template>
-  <div class="bars">
+  <div class="bars separator-start main-bottom">
     <Bar :first="true" :part="parts[0].part" />
     <Bar :part="parts[1].part" />
   </div>
@@ -30,14 +30,5 @@ export default {
   gap: 2.6rem;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  padding-top: 1.1rem;
-    &:before {
-    content: "";
-    width: 100%;
-    height: 0.4rem;
-    position: absolute;
-    top: 0;
-    background-color: var(--black);
-  }
 }
 </style>

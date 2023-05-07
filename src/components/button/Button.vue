@@ -47,6 +47,10 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  .big & {
+    height: 1rem;
+    width: 1rem;
+  }
   .checked & {
     background: var(--white);
   }

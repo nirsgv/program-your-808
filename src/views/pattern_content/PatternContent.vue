@@ -2,12 +2,14 @@
   <div class="pat" v-if="pattern">
     <Title :item="pattern" />
     <Bars :parts="pattern.parts" />
+    <Player />
+    <Instructions />
   </div>
 </template>
 
 <script>
 import { data } from "@/store/data.js";
-import { Bars, Title } from "@/components/index.js";
+import { Bars, Title, Player, Instructions } from "@/components/index.js";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -15,6 +17,8 @@ export default {
   components: {
     Bars,
     Title,
+    Player,
+    Instructions,
   },
   props: {
     id: [Number, String],
@@ -23,7 +27,9 @@ export default {
     ...mapGetters(["main_bkg_color", "pattern"]),
 
     data: function () {
-      return data;
+      return {
+        data,
+      };
     },
   },
   methods: {
@@ -46,6 +52,6 @@ export default {
 
 <style scoped lang="scss">
 .pat {
-  padding: 4rem 0;
+  padding: 4rem 0 0.6rem;
 }
 </style>

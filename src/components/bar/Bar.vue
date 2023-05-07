@@ -1,8 +1,8 @@
 <template>
   <div class="bar">
-    <div class="title">
+    <h3 class="title">
       {{ title }}
-    </div>
+    </h3>
     <div class="index">
       <ul class="indexes">
         <li v-for="(item, index) in Array.from({ length: 16 })" :key="index">
@@ -64,7 +64,6 @@ li {
 }
 .title {
   text-align: left;
-  font-size: 1.4rem;
   margin: 0.6rem 0;
   font-weight: 800;
 }

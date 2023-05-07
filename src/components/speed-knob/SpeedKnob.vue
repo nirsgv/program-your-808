@@ -256,10 +256,14 @@ export default {
 }
 #speed {
   width: 100%;
-  height: 40rem;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
+}
+
+.speed-knob {
+  max-width: 12rem;
+  margin: 0 auto;
 }
 </style>

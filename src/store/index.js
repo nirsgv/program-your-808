@@ -3,12 +3,14 @@ import Vuex from "vuex";
 import router from "@/router";
 import { data } from "@/store/data.js";
 Vue.use(Vuex);
-console.log(router)
+console.log(router);
 export default new Vuex.Store({
   state: {
     patterns: data,
     main_bkg_color: "#f00",
     selected_id: 1,
+    timer: null,
+    step: 0,
   },
   getters: {
     main_bkg_color: (state) => state.main_bkg_color,
@@ -24,6 +26,22 @@ export default new Vuex.Store({
         state.selected_id = id;
       }
     },
+    NEXT: (state) => {
+      if (state.selected_id < state.patterns.length) {
+        router.push({ path: `/${state.selected_id + 1}` });
+      }
+    },
+    PREV: (state) => {
+      if (state.selected_id > 1) {
+        router.push({ path: `/${state.selected_id - 1}` });
+      }
+    },
+    START_TIMER: (state) => {
+      state.timer = setInterval(() => (state.step += 1), 1000);
+    },
+    STOP_TIMER: (state) => {
+      state.timer = null;
+    },
   },
   actions: {
     changeBkgColor: ({ commit }, { color }) => {
@@ -32,11 +50,14 @@ export default new Vuex.Store({
     setSelectedId: ({ commit }, { id }) => {
       commit("SET_SELECTED_ID", { id });
     },
-    next: ({ commit }, { id }) => {
-      commit("SET_SELECTED_ID", { id: id + 1 });
+    next: ({ commit }) => {
+      commit("NEXT");
     },
-    prev: ({ commit }, { id }) => {
-      commit("SET_SELECTED_ID", { id: id - 1 });
+    prev: ({ commit }) => {
+      commit("PREV");
+    },
+    startTimer: ({ commit }) => {
+      commit("START_TIMER");
     },
   },
   modules: {},

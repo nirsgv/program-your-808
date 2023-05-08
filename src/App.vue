@@ -3,13 +3,18 @@
     <main>
       <router-view />
     </main>
+    <Controls />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { Controls } from "@/components/index.js";
 export default {
   name: "App",
+  components: {
+    Controls,
+  },
   computed: {
     ...mapGetters(["main_bkg_color"]),
   },

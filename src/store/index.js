@@ -16,6 +16,8 @@ export default new Vuex.Store({
     main_bkg_color: (state) => state.main_bkg_color,
     pattern: (state) => state.patterns.find((p) => p.id == state.selected_id),
     patterns: (state) => state.patterns,
+    step: (state) => state.step,
+    timer: (state) => state.timer,
   },
   mutations: {
     CHANGE_BKG_COLOR: (state, { color }) => {
@@ -40,6 +42,7 @@ export default new Vuex.Store({
       state.timer = setInterval(() => (state.step += 1), 1000);
     },
     STOP_TIMER: (state) => {
+      clearInterval(state.timer);
       state.timer = null;
     },
   },
@@ -58,6 +61,9 @@ export default new Vuex.Store({
     },
     startTimer: ({ commit }) => {
       commit("START_TIMER");
+    },
+    stopTimer: ({ commit }) => {
+      commit("STOP_TIMER");
     },
   },
   modules: {},

@@ -1,30 +1,31 @@
 <template>
   <nav class="controls main-bottom">
     <button @click="prev">
-      <!-- <h5>Previous</h5> -->
       <Icon iconName="prev" />
     </button>
-    <button href="">
-      <!-- <h5>Play</h5> -->
-      <Icon iconName="play" />
+    <button @click="timer ? stopTimer() : startTimer()">
+      <Icon :iconName="timer ? 'pause' : 'play'" />
     </button>
     <button @click="next">
-      <!-- <h5>Next</h5> -->
       <Icon iconName="next" />
     </button>
+    {{ step }}
   </nav>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Icon from "@/components/icon/Icon.vue";
 export default {
   name: "Controls",
   components: {
     Icon,
   },
+  computed: {
+    ...mapGetters(["timer", "step"]),
+  },
   methods: {
-    ...mapActions(["next", "prev"]),
+    ...mapActions(["next", "prev", "startTimer", "stopTimer"]),
   },
 };
 </script>

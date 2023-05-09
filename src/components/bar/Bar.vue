@@ -1,3 +1,4 @@
+<!-- eslint-disable no-debugger -->
 <template>
   <div class="bar">
     <h3 class="title">
@@ -23,7 +24,10 @@
               v-for="(item, idx) in part[instrument]"
               :key="`${instrument}${idx}`"
             >
-              <Button :checked="Boolean(part[instrument][idx])" />
+              <Button
+                :checked="Boolean(part[instrument][idx])"
+                :highlight="first ? step === idx : step === idx + 16"
+              />
             </li>
           </ul>
         </li>
@@ -46,6 +50,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    step: {
+      type: Number,
+      default: 0,
+    },
   },
   computed: {
     instruments() {
@@ -53,6 +61,11 @@ export default {
     },
     title() {
       return this.first ? "1st Part (Steps 1-16)" : "2nd Part (Steps 17-32)";
+    },
+  },
+  watch: {
+    step(val) {
+      console.log(val, this.part);
     },
   },
 };

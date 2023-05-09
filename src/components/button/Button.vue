@@ -1,5 +1,5 @@
 <template>
-  <div type="checkbox" class="button" :class="{ checked }" @click="$emit('click')">
+  <div type="checkbox" class="button" :class="{ checked, highlight }" @click="$emit('click')">
     <div class="top">
       <span class="light"></span>
     </div>
@@ -12,6 +12,7 @@ export default {
   name: "Button",
   props: {
     checked: Boolean,
+    highlight: Boolean,
   },
 };
 </script>
@@ -26,6 +27,9 @@ export default {
   cursor: pointer;
   &.checked {
     background: var(--black);
+  }
+  &.highlight {
+    background: var(--highlight);
   }
 }
 

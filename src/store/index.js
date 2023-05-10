@@ -48,6 +48,33 @@ export default new Vuex.Store({
       sd: new Howl({
         src: [require("../assets/sd.wav")],
       }),
+      lc: new Howl({
+        src: [require("../assets/lc.wav")],
+      }),
+      mc: new Howl({
+        src: [require("../assets/mc.wav")],
+      }),
+      hc: new Howl({
+        src: [require("../assets/hc.wav")],
+      }),
+      rs: new Howl({
+        src: [require("../assets/rs.wav")],
+      }),
+      cp: new Howl({
+        src: [require("../assets/cp.wav")],
+      }),
+      cb: new Howl({
+        src: [require("../assets/cb.wav")],
+      }),
+      cy: new Howl({
+        src: [require("../assets/cy.wav")],
+      }),
+      oh: new Howl({
+        src: [require("../assets/oh.wav")],
+      }),
+      ch: new Howl({
+        src: [require("../assets/ch.wav")],
+      }),
     }
   },
   getters: {

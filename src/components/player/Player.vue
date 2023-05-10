@@ -12,7 +12,6 @@
     </div>
     <div class="pattern-write">
       <h3 class="title">Pattern Write</h3>
-
       <SpeedKnob
         :value="speed"
         @change-speed="changeSpeed"
@@ -46,7 +45,6 @@ export default {
   },
   methods: {
     changeSpeed(e) {
-      console.log(Number(e.target.value));
       this.speed = Number(e.target.value);
     },
   },

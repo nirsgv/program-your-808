@@ -1,6 +1,5 @@
 <template>
   <div class="pat" v-if="pattern">
-    <button @click="playSound({ instrument: 'bd' })">d</button>
     <Title :item="pattern" />
     <Bars :parts="pattern.parts"/>
     <Player />
@@ -34,7 +33,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["changeBkgColor", "setSelectedId", "playSound"]),
+    ...mapActions(["changeBkgColor", "setSelectedId"]),
     updateStoreFromRoute() {
       this.setSelectedId({ id: this.id });
       this.changeBkgColor({ color: this.pattern.color });

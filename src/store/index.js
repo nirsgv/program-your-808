@@ -2,8 +2,12 @@ import Vue from "vue";
 import Vuex from "vuex";
 import router from "@/router";
 import { data } from "@/store/data.js";
+import { Howl, Howler } from "howler";
 Vue.use(Vuex);
-console.log(router);
+Howler.volume(0.5);
+console.log({ router });
+console.log({ Howler });
+console.log({ Howl });
 
 const flatPart = (part, flat = {}) => {
   for (let inst in part) {
@@ -37,6 +41,14 @@ export default new Vuex.Store({
     timer: null,
     step: 0,
     bpm: 120,
+    sound: {
+      bd: new Howl({
+        src: [require("../assets/bd.wav")],
+      }),
+      sd: new Howl({
+        src: [require("../assets/sd.wav")],
+      }),
+    }
   },
   getters: {
     main_bkg_color: (state) => state.main_bkg_color,
@@ -74,6 +86,10 @@ export default new Vuex.Store({
       // state.step = 0;
       state.timer = null;
     },
+    PLAY_SOUND: (state, { instrument }) => {
+      console.log(instrument);
+      state.sound[instrument].play();
+    },
   },
   actions: {
     changeBkgColor: ({ commit }, { color }) => {
@@ -93,6 +109,10 @@ export default new Vuex.Store({
     },
     stopTimer: ({ commit }) => {
       commit("STOP_TIMER");
+    },
+    playSound: ({ commit }, { instrument }) => {
+      console.log(234);
+      commit("PLAY_SOUND", { instrument });
     },
   },
   modules: {},

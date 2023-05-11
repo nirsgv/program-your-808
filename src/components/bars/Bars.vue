@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 import { INSTRUMENTS } from "../../store/data.js";
 import Bar from "../bar/Bar.vue";
 export default {
@@ -18,7 +18,7 @@ export default {
     parts: Array,
   },
   computed: {
-    ...mapGetters(["step"]),
+    ...mapGetters(["step", "flat_pattern"]),
     instruments() {
       return INSTRUMENTS;
     },
@@ -28,12 +28,11 @@ export default {
   },
   watch: {
     step(newVal, oldVal) {
-      if (newVal !== oldVal) {
-        const instruments = this.flat_pattern[newVal].map(i => i.toLowerCase());
-        instruments.forEach(instrument => this.playSound({ instrument }));
+      if (newVal !== oldVal && this.flat_pattern && this.flat_pattern[this.step]) {
+        this.flat_pattern[this.step].forEach((instrument) => this.playSound({ instrument: instrument.toLowerCase() }));
       }
     },
-  }
+  },
 };
 </script>
 

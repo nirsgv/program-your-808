@@ -114,7 +114,6 @@ export default new Vuex.Store({
       state.timer = null;
     },
     PLAY_SOUND: (state, { instrument }) => {
-      console.log(instrument);
       state.sound[instrument].play();
     },
   },
@@ -138,7 +137,6 @@ export default new Vuex.Store({
       commit("STOP_TIMER");
     },
     playSound: ({ commit }, { instrument }) => {
-      console.log(234);
       commit("PLAY_SOUND", { instrument });
     },
   },

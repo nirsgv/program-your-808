@@ -63,11 +63,6 @@ export default {
       return this.first ? "1st Part (Steps 1-16)" : "2nd Part (Steps 17-32)";
     },
   },
-  watch: {
-    step(val) {
-      console.log(val, this.part);
-    },
-  },
 };
 </script>
 

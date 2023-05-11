@@ -1402,3 +1402,4 @@ export const data = [
     id: 40,
   },
 ];
+console.log(data);

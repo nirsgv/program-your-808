@@ -45,6 +45,7 @@ export default {
   },
   methods: {
     changeSpeed(e) {
+      console.log(Number(e.target.value));
       this.speed = Number(e.target.value);
     },
   },

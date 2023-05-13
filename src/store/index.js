@@ -3,6 +3,8 @@ import Vuex from "vuex";
 import router from "@/router";
 import { data } from "@/store/data.js";
 import { Howl, Howler } from "howler";
+import { getTrack } from "@/services/service.js";
+
 Vue.use(Vuex);
 Howler.volume(0.5);
 console.log({ router });
@@ -36,8 +38,8 @@ const flatParts = (parts) => ({
 export default new Vuex.Store({
   state: {
     patterns: data,
-    main_bkg_color: "#f00",
     selected_id: 1,
+    track: null,
     timer: null,
     step: 0,
     bpm: 120,
@@ -75,10 +77,11 @@ export default new Vuex.Store({
       ch: new Howl({
         src: [require("../assets/ch.wav")],
       }),
-    }
+    },
   },
   getters: {
-    main_bkg_color: (state) => state.main_bkg_color,
+    main_bkg_color: (state) => state.track?.color || "#ffffff",
+    track: (state) => state.track,
     patterns: (state) => state.patterns,
     pattern: (state) => state.patterns.find((p) => p.id == state.selected_id),
     flat_pattern: (state) =>
@@ -87,22 +90,19 @@ export default new Vuex.Store({
     timer: (state) => state.timer,
   },
   mutations: {
-    CHANGE_BKG_COLOR: (state, { color }) => {
-      state.main_bkg_color = color;
-    },
     SET_SELECTED_ID: (state, { id }) => {
       if (id < state.patterns.length) {
         state.selected_id = id;
       }
     },
     NEXT: (state) => {
-      if (state.selected_id < state.patterns.length) {
-        router.push({ path: `/${state.selected_id + 1}` });
+      if (state.track.id < 40) {
+        router.push({ path: `/${state.track.id + 1}` });
       }
     },
     PREV: (state) => {
-      if (state.selected_id > 1) {
-        router.push({ path: `/${state.selected_id - 1}` });
+      if (state.track.id > 1) {
+        router.push({ path: `/${state.track.id - 1}` });
       }
     },
     START_TIMER: (state) => {
@@ -116,11 +116,12 @@ export default new Vuex.Store({
     PLAY_SOUND: (state, { instrument }) => {
       state.sound[instrument].play();
     },
+    SET_TRACK: (state, { track }) => {
+      // eslint-disable-next-line no-debugger
+      state.track = track;
+    },
   },
   actions: {
-    changeBkgColor: ({ commit }, { color }) => {
-      commit("CHANGE_BKG_COLOR", { color });
-    },
     setSelectedId: ({ commit }, { id }) => {
       commit("SET_SELECTED_ID", { id });
     },
@@ -138,6 +139,10 @@ export default new Vuex.Store({
     },
     playSound: ({ commit }, { instrument }) => {
       commit("PLAY_SOUND", { instrument });
+    },
+    loadTrack: async ({ commit }, { id }) => {
+      const track = await getTrack({ id });
+      commit("SET_TRACK", { track });
     },
   },
   modules: {},

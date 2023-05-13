@@ -1,5 +1,6 @@
 <template>
   <nav class="controls main-bottom">
+    <button @click="getStuff({ id: 3 })">Get stuff</button>
     <button @click="prev">
       <Icon iconName="prev" />
     </button>
@@ -25,7 +26,7 @@ export default {
     ...mapGetters(["timer", "step"]),
   },
   methods: {
-    ...mapActions(["next", "prev", "startTimer", "stopTimer"]),
+    ...mapActions(["next", "prev", "startTimer", "stopTimer", "getStuff"]),
   },
 };
 </script>

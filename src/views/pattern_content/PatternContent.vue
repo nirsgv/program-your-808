@@ -1,14 +1,13 @@
 <template>
-  <div class="pat" v-if="pattern">
-    <Title :item="pattern" />
-    <Bars :parts="pattern.parts"/>
+  <div class="pat" v-if="track">
+    <Title :item="track" />
+    <Bars :parts="track.parts"  />
     <Player />
     <Instructions />
   </div>
 </template>
 
 <script>
-import { data } from "@/store/data.js";
 import { Bars, Title, Player, Instructions } from "@/components/index.js";
 import { mapGetters, mapActions } from "vuex";
 
@@ -23,28 +22,18 @@ export default {
   props: {
     id: [Number, String],
   },
+  mounted() {
+    this.loadTrack({ id: this.id });
+  },
   computed: {
-    ...mapGetters(["main_bkg_color", "pattern"]),
-
-    data: function () {
-      return {
-        data,
-      };
-    },
+    ...mapGetters(["track"]),
   },
   methods: {
-    ...mapActions(["changeBkgColor", "setSelectedId"]),
-    updateStoreFromRoute() {
-      this.setSelectedId({ id: this.id });
-      this.changeBkgColor({ color: this.pattern.color });
-    },
-  },
-  created() {
-    this.updateStoreFromRoute();
+    ...mapActions(["loadTrack"]),
   },
   watch: {
     id: function () {
-      this.updateStoreFromRoute();
+      this.loadTrack({ id: this.id });
     },
   },
 };

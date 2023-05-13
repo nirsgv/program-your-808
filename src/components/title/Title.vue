@@ -2,8 +2,8 @@
   <header class="details main-bottom">
     <nav>
       <ul class="big">
-        <Button :checked="true" @click="routerNext" />
-        <Button :checked="false" @click="routerPrev" />
+        <Button :checked="true" @click="next" />
+        <Button :checked="false" @click="prev" />
       </ul>
     </nav>
     <header class="title">
@@ -43,14 +43,6 @@ export default {
   },
   methods: {
     ...mapActions(["next", "prev"]),
-    routerNext() {
-      this.$router.push({ path: `/${this.item.id + 1}` });
-    },
-    routerPrev() {
-      if (this.item.id > 1) {
-        this.$router.push({ path: `/${this.item.id - 1}` });
-      }
-    },
   },
   computed: {
     trackInfo() {

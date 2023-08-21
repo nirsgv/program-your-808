@@ -2,7 +2,6 @@
      todo
 ---------------
 
-* remove data file from usage
 * next or prev track should stop and play from the start point
 * changing tempo 
 * user can change the state of the pattern 
@@ -14,6 +13,7 @@
      done
 ---------------
 
+* remove data file from usage
 * howler setup config module
 6. change background
 7. play pattern

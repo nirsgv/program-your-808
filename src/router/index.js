@@ -9,7 +9,7 @@ const routes = [
     path: "/:id?",
     name: "PatternContent",
     component: PatternContent,
-    props: (route) => ({ id: Number(route.params.id) }),
+    props: (route) => ({ id: route.params.id ? Number(route.params.id) : 1}),
   },
 ];
 

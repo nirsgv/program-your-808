@@ -2,7 +2,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "@/router";
-import { data } from "@/store/data.js";
 import { getTrack } from "@/services/service.js";
 import sounds from "@/howler-config.js";
 
@@ -34,7 +33,6 @@ const flatParts = (parts) => ({
 
 export default new Vuex.Store({
   state: {
-    patterns: data,
     selected_id: 1,
     track: null,
     timer: null,
@@ -45,10 +43,7 @@ export default new Vuex.Store({
   getters: {
     main_bkg_color: (state) => state.track?.color || "#ffffff",
     track: (state) => state.track,
-    patterns: (state) => state.patterns,
-    pattern: (state) => state.patterns.find((p) => p.id == state.selected_id),
-    flat_pattern: (state) =>
-      flatParts(state.patterns.find((p) => p.id == state.selected_id).parts),
+    flat_pattern: (state) => flatParts(state.track.parts),
     step: (state) => state.step % 32,
     timer: (state) => state.timer,
   },

@@ -1,6 +1,5 @@
 <template>
   <nav class="controls main-bottom">
-    <button @click="getStuff({ id: 3 })">Get stuff</button>
     <button @click="prev">
       <Icon iconName="prev" />
     </button>

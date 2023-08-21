@@ -1,5 +1,6 @@
 <template>
   <div class="pat" v-if="track">
+    {{ track }}
     <Title :item="track" />
     <Bars :parts="track.parts"  />
     <Player />
@@ -20,7 +21,10 @@ export default {
     Instructions,
   },
   props: {
-    id: [Number, String],
+    id: {
+      type: Number,
+      default: 1,
+    },
   },
   mounted() {
     this.loadTrack({ id: this.id });

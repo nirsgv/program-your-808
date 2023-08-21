@@ -1,15 +1,12 @@
+/* eslint-disable no-debugger */
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "@/router";
 import { data } from "@/store/data.js";
-import { Howl, Howler } from "howler";
 import { getTrack } from "@/services/service.js";
+import sounds from "@/howler-config.js";
 
 Vue.use(Vuex);
-Howler.volume(0.5);
-console.log({ router });
-console.log({ Howler });
-console.log({ Howl });
 
 const flatPart = (part, flat = {}) => {
   for (let inst in part) {
@@ -43,41 +40,7 @@ export default new Vuex.Store({
     timer: null,
     step: 0,
     bpm: 120,
-    sound: {
-      bd: new Howl({
-        src: [require("../assets/bd.wav")],
-      }),
-      sd: new Howl({
-        src: [require("../assets/sd.wav")],
-      }),
-      lc: new Howl({
-        src: [require("../assets/lc.wav")],
-      }),
-      mc: new Howl({
-        src: [require("../assets/mc.wav")],
-      }),
-      hc: new Howl({
-        src: [require("../assets/hc.wav")],
-      }),
-      rs: new Howl({
-        src: [require("../assets/rs.wav")],
-      }),
-      cp: new Howl({
-        src: [require("../assets/cp.wav")],
-      }),
-      cb: new Howl({
-        src: [require("../assets/cb.wav")],
-      }),
-      cy: new Howl({
-        src: [require("../assets/cy.wav")],
-      }),
-      oh: new Howl({
-        src: [require("../assets/oh.wav")],
-      }),
-      ch: new Howl({
-        src: [require("../assets/ch.wav")],
-      }),
-    },
+    patternLength: 40,
   },
   getters: {
     main_bkg_color: (state) => state.track?.color || "#ffffff",
@@ -91,7 +54,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_SELECTED_ID: (state, { id }) => {
-      if (id < state.patterns.length) {
+      if (id < state.patternLength) {
         state.selected_id = id;
       }
     },
@@ -110,15 +73,16 @@ export default new Vuex.Store({
     },
     STOP_TIMER: (state) => {
       clearInterval(state.timer);
-      // state.step = 0;
       state.timer = null;
     },
     PLAY_SOUND: (state, { instrument }) => {
-      state.sound[instrument].play();
+      sounds.play(instrument);
     },
     SET_TRACK: (state, { track }) => {
-      // eslint-disable-next-line no-debugger
       state.track = track;
+    },
+    RESTART_PLAYBACK: (state) => {
+      state.step = 0;
     },
   },
   actions: {
@@ -126,10 +90,16 @@ export default new Vuex.Store({
       commit("SET_SELECTED_ID", { id });
     },
     next: ({ commit }) => {
+      commit("STOP_TIMER");
+      commit("RESTART_PLAYBACK");
       commit("NEXT");
+      commit("START_TIMER");
     },
     prev: ({ commit }) => {
+      commit("STOP_TIMER");
+      commit("RESTART_PLAYBACK");
       commit("PREV");
+      commit("START_TIMER");
     },
     startTimer: ({ commit }) => {
       commit("START_TIMER");

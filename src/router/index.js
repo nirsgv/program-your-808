@@ -6,10 +6,10 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/:id",
+    path: "/:id?",
     name: "PatternContent",
     component: PatternContent,
-    props: (route) => ({ id: Number(route.params.id) || 1 }),
+    props: (route) => ({ id: Number(route.params.id) }),
   },
 ];
 

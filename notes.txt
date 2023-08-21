@@ -1,8 +1,25 @@
-1. import Helvetica
-2. create button component
-3. use rems
-4. display pattern
-5. change pattern
+---------------
+     todo
+---------------
+
+* remove data file from usage
+* next or prev track should stop and play from the start point
+* changing tempo 
+* user can change the state of the pattern 
+* add links
+* put in server 
+* text color
+
+---------------
+     done
+---------------
+
+* howler setup config module
 6. change background
 7. play pattern
 8. play sound from pattern
+4. display pattern
+5. change pattern
+1. import Helvetica
+2. create button component
+3. use rems

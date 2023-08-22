@@ -3,8 +3,8 @@
     <button @click="prev">
       <Icon iconName="prev" />
     </button>
-    <button @click="timer ? stopTimer() : startTimer()">
-      <Icon :iconName="timer ? 'pause' : 'play'" />
+    <button @click="currentlyPlaying ? stopTimer() : startTimer()">
+      <Icon :iconName="currentlyPlaying ? 'pause' : 'play'" />
     </button>
     <button @click="next">
       <Icon iconName="next" />
@@ -22,7 +22,7 @@ export default {
     Icon,
   },
   computed: {
-    ...mapGetters(["timer", "step"]),
+    ...mapGetters(["currentlyPlaying", "step"]),
   },
   methods: {
     ...mapActions(["next", "prev", "startTimer", "stopTimer", "getStuff"]),

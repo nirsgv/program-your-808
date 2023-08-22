@@ -3,7 +3,7 @@
     <div class="tempo">
       <h3 class="title">Tempo</h3>
       <SpeedKnob
-        :value="speed"
+        :value="tempo"
         @change-speed="changeSpeed"
         :min="min"
         :max="max"
@@ -13,7 +13,7 @@
     <div class="pattern-write">
       <h3 class="title">Pattern Write</h3>
       <SpeedKnob
-        :value="speed"
+        :value="tempo"
         @change-speed="changeSpeed"
         :min="min"
         :max="max"
@@ -25,6 +25,8 @@
 
 <script>
 import { SpeedKnob } from "@/components/index.js";
+import { mapGetters, mapActions } from "vuex";
+import throttle from 'lodash.throttle';
 
 export default {
   name: "Player",
@@ -37,17 +39,23 @@ export default {
   },
   data: function () {
     return {
-      speed: 120,
       min: 60,
       max: 180,
-      step: 8,
+      step: 1,
     };
   },
   methods: {
+    ...mapActions(["changeTempo"]),
+    throttledChangeSpeed: throttle(function(e) {
+      this.changeTempo({ bpm: Number(e.target.value), currentlyPlaying: this.currentlyPlaying });
+    }, 10),
+
     changeSpeed(e) {
-      console.log(Number(e.target.value));
-      this.speed = Number(e.target.value);
+      this.throttledChangeSpeed(e);
     },
+  },
+  computed: {
+    ...mapGetters(["tempo", "currentlyPlaying"]),
   },
 };
 </script>

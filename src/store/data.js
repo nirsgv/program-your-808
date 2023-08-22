@@ -43,6 +43,7 @@ export const data = [
     year: "1982",
     label: "Tommy Boy Music",
     country: "United States",
+    npm: 126,
     parts: [
       new Part({
         instruments: INSTRUMENTS,

@@ -45,8 +45,9 @@ export default new Vuex.Store({
     track: (state) => state.track,
     flat_pattern: (state) => flatParts(state.track.parts),
     step: (state) => state.step % 32,
-    timer: (state) => state.timer,
+    currentlyPlaying: (state) => !!state.timer,
     isLoading: (state) => state.loading,
+    tempo: (state) => state.bpm,
   },
   mutations: {
     NEXT: (state) => {
@@ -60,7 +61,9 @@ export default new Vuex.Store({
       }
     },
     START_TIMER: (state) => {
+      // if (state.step === 0) state.step -= 1;
       state.timer = setInterval(() => (state.step += 1), 15000 / state.bpm);
+      console.log(state.timer);
     },
     STOP_TIMER: (state) => {
       clearInterval(state.timer);
@@ -85,6 +88,9 @@ export default new Vuex.Store({
         ? 0
         : 1;
       state.track.parts = partsCopy;
+    },
+    CHANGE_TEMPO: (state, { bpm }) => {
+      state.bpm = bpm;
     },
   },
   actions: {
@@ -117,6 +123,15 @@ export default new Vuex.Store({
     },
     toggleNote: async ({ commit }, { instrument, col, first }) => {
       commit("TOGGLE_NOTE", { instrument, col, first });
+    },
+    changeTempo: async ({ commit }, { bpm, currentlyPlaying }) => {
+      if (currentlyPlaying) {
+        commit("STOP_TIMER");
+        commit("CHANGE_TEMPO", { bpm });
+        commit("START_TIMER");
+      } else {
+        commit("CHANGE_TEMPO", { bpm });
+      }
     },
   },
   modules: {},

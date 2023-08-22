@@ -217,7 +217,7 @@
     <input
       type="range"
       id="speed"
-      name="cowbell"
+      name="tempo"
       :min="min"
       :max="max"
       :value="value"

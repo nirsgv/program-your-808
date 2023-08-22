@@ -26,7 +26,7 @@
             >
               <Button
                 :checked="Boolean(part[instrument][col])"
-                :highlight="first ? step === col : step === col + 16"
+                :selected-step="first ? step === col : step === col + 16"
                 @click="toggleNote({ instrument, col, first })"
               />
             </li>

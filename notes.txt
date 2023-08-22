@@ -2,15 +2,18 @@
      todo
 ---------------
 
-* changing tempo 
 * add links
-* put in server 
+* put in server (deploy)
 * text color
+* playing should start in current step and not the next one
 
 ---------------
      done
 ---------------
 
+* throttle the change tempo action
+* changing tempo 
+* checked selected state 
 * user can change the state of the pattern 
 * next or prev track should stop and play from the start point
 * preloader

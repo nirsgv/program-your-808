@@ -5,11 +5,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "nodemon ./api/server.js --trace-warnings",
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "start": "node --trace-warnings ./api/server.js && vue-cli-service serve",
+    "heroku-postbuild": "cross-env NODE_ENV=production npm i && vue-cli-service build",
+    "start:client": "NODE_ENV=development npm install && vue-cli-service serve",
+    "start:server": "NODE_ENV=development nodemon ./api/server.js --trace-warnings",
+    "local": "npm run start:server && npm run start:client",
+    "build": "cross-env NODE_ENV=production npm install",
+    "build:client": "cross-env NODE_ENV=development vue-cli-service build"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -48,6 +50,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "engines": {
+    "node": "14.15.0"
   },
   "eslintConfig": {
     "root": true,

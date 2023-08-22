@@ -1,7 +1,10 @@
 const path = require("path");
-require("dotenv").config({
-  path: path.resolve(__dirname + "/../variables.env"),
-});
+const { NODE_ENV } = process.env;
+if (NODE_ENV !== "production") {
+  require("dotenv").config({
+    path: path.resolve(__dirname + "/../variables.env"),
+  });
+}
 const tracksController = require("./controllers/tracksController");
 const express = require("express");
 const mongoose = require("mongoose");

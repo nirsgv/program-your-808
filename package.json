@@ -30,7 +30,8 @@
     "uuid": "^9.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "compression": "^1.7.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",

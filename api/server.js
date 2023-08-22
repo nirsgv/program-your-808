@@ -25,6 +25,7 @@ const DATABASE = process.env.DATABASE;
 
 mongoose.connect(DATABASE, {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const connection = mongoose.connection;

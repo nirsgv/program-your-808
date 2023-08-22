@@ -1,10 +1,12 @@
 <template>
-  <div class="pat" v-if="track">
-    {{ track }}
-    <Title :item="track" />
-    <Bars :parts="track.parts"  />
-    <Player />
-    <Instructions />
+  <div>
+    <div class="content" :class="{ pause }" v-if="track">
+      <Title :item="track" />
+      <Bars :parts="track.parts" />
+      <Player />
+      <Instructions />
+    </div>
+    <section v-if="pause" class="loader"></section>
   </div>
 </template>
 
@@ -30,7 +32,10 @@ export default {
     this.loadTrack({ id: this.id });
   },
   computed: {
-    ...mapGetters(["track"]),
+    ...mapGetters(["track", "isLoading"]),
+    pause() {
+      return !this.track || this.isLoading;
+    },
   },
   methods: {
     ...mapActions(["loadTrack"]),
@@ -44,7 +49,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.pat {
+.content {
   padding: 4rem 0 0.6rem;
+  transition: all 0.1s ease-out;
+  position: relative;
+  &.pause {
+    opacity: 0.75;
+  }
+}
+.loader {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background: #ffffff44;
 }
 </style>

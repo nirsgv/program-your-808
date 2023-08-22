@@ -21,12 +21,13 @@
           <span class="pre" v-if="first">{{ instrument }}</span>
           <ul class="buttons">
             <li
-              v-for="(item, idx) in part[instrument]"
-              :key="`${instrument}${idx}`"
+              v-for="(item, col) in part[instrument]"
+              :key="`${instrument}${col}`"
             >
               <Button
-                :checked="Boolean(part[instrument][idx])"
-                :highlight="first ? step === idx : step === idx + 16"
+                :checked="Boolean(part[instrument][col])"
+                :highlight="first ? step === col : step === col + 16"
+                @click="toggleNote({ instrument, col, first })"
               />
             </li>
           </ul>
@@ -39,6 +40,8 @@
 <script>
 import { INSTRUMENTS } from "../../store/data.js";
 import { Button } from "@/components";
+import { mapActions } from "vuex";
+
 export default {
   name: "Bar",
   components: {
@@ -62,6 +65,9 @@ export default {
     title() {
       return this.first ? "1st Part (Steps 1-16)" : "2nd Part (Steps 17-32)";
     },
+  },
+  methods: {
+    ...mapActions(["toggleNote"]),
   },
 };
 </script>

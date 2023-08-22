@@ -33,12 +33,12 @@ const flatParts = (parts) => ({
 
 export default new Vuex.Store({
   state: {
-    selected_id: 1,
     track: null,
     timer: null,
     step: 0,
     bpm: 120,
     patternLength: 40,
+    loading: false,
   },
   getters: {
     main_bkg_color: (state) => state.track?.color || "#ffffff",
@@ -46,13 +46,9 @@ export default new Vuex.Store({
     flat_pattern: (state) => flatParts(state.track.parts),
     step: (state) => state.step % 32,
     timer: (state) => state.timer,
+    isLoading: (state) => state.loading,
   },
   mutations: {
-    SET_SELECTED_ID: (state, { id }) => {
-      if (id < state.patternLength) {
-        state.selected_id = id;
-      }
-    },
     NEXT: (state) => {
       if (state.track.id < 40) {
         router.push({ path: `/${state.track.id + 1}` });
@@ -79,11 +75,19 @@ export default new Vuex.Store({
     RESTART_PLAYBACK: (state) => {
       state.step = 0;
     },
+    SET_LOADING: (state, { loading }) => {
+      state.loading = loading;
+    },
+    TOGGLE_NOTE: (state, { instrument, col, first }) => {
+      const partsCopy = window.structuredClone(state.track.parts);
+      partsCopy[first ? 0 : 1].part[instrument][col] = partsCopy[first ? 0 : 1]
+        .part[instrument][col]
+        ? 0
+        : 1;
+      state.track.parts = partsCopy;
+    },
   },
   actions: {
-    setSelectedId: ({ commit }, { id }) => {
-      commit("SET_SELECTED_ID", { id });
-    },
     next: ({ commit }) => {
       commit("STOP_TIMER");
       commit("RESTART_PLAYBACK");
@@ -106,8 +110,13 @@ export default new Vuex.Store({
       commit("PLAY_SOUND", { instrument });
     },
     loadTrack: async ({ commit }, { id }) => {
+      commit("SET_LOADING", { loading: true });
       const track = await getTrack({ id });
       commit("SET_TRACK", { track });
+      commit("SET_LOADING", { loading: false });
+    },
+    toggleNote: async ({ commit }, { instrument, col, first }) => {
+      commit("TOGGLE_NOTE", { instrument, col, first });
     },
   },
   modules: {},

@@ -2,9 +2,7 @@
      todo
 ---------------
 
-* next or prev track should stop and play from the start point
 * changing tempo 
-* user can change the state of the pattern 
 * add links
 * put in server 
 * text color
@@ -13,6 +11,9 @@
      done
 ---------------
 
+* user can change the state of the pattern 
+* next or prev track should stop and play from the start point
+* preloader
 * remove data file from usage
 * howler setup config module
 6. change background

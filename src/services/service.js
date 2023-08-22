@@ -10,7 +10,7 @@ const axi = axios.create({
 const getTrack = async ({ id }) => {
   const { data } = await axi.get(`http://localhost:8000/api/track/${id}`);
   console.log(data);
-  // await new Promise(resolve => setTimeout(resolve, 20));
+  // await new Promise(resolve => setTimeout(resolve, 1000));
   return data;
 };
 

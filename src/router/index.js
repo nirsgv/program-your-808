@@ -9,13 +9,13 @@ const routes = [
     path: "/:id?",
     name: "PatternContent",
     component: PatternContent,
-    props: (route) => ({ id: route.params.id ? Number(route.params.id) : 1}),
+    props: (route) => ({ id: route.params.id ? Number(route.params.id) : 1 }),
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: "/",
   routes,
 });
 

@@ -40,7 +40,7 @@ connection.once("open", () =>
   )
 );
 
-mongoose.Promise = global.Promise; // Tells Mongoose to use ES6 promises
+mongoose.Promise = global.Promise;
 mongoose.connection.on("error", (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
@@ -55,10 +55,6 @@ app.get("/api/test", tracksController.test);
 app.get("/about", function (req, res) {
   return res.sendFile(path.resolve(__dirname + "/../build/index.html"));
 });
-
-// app.get("/track/*", function (req, res) {
-//   return res.sendFile(path.resolve(__dirname + "/../build/index.html"));
-// });
 
 if (NODE_ENV === "production") {
   app.use(express.static(`${__dirname}/public/`));

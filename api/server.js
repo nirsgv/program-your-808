@@ -51,6 +51,7 @@ app.get("/api/track/:id", tracksController.getTrack);
 app.get("/api/test", tracksController.test);
 
 if (NODE_ENV === "production") {
+  console.log(__dirname);
   app.use(express.static(`${__dirname}/public/`));
   app.get("*", (_req, res) => res.sendFile(path.resolve(__dirname + "/public/index.html")));
 }

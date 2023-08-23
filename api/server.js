@@ -13,7 +13,6 @@ const compression = require("compression");
 const morgan = require("morgan");
 
 const app = express();
-// app.use(express.static(path.resolve(__dirname + "/../build")));
 app.disable("x-powered-by");
 app.use(compression());
 app.use(morgan("common"));
@@ -54,7 +53,6 @@ app.get("/api/test", tracksController.test);
 if (NODE_ENV === "production") {
   app.use(express.static(`${__dirname}/public/`));
   app.get("*", (_req, res) => res.sendFile(path.resolve(__dirname + "/../public/index.html")));
-  app.get("/*", (_req, res) => res.sendFile(path.resolve(__dirname + "/../public/index.html")));
 }
 
 app.listen(PORT, (err) => {

@@ -13,7 +13,7 @@ const compression = require("compression");
 const morgan = require("morgan");
 
 const app = express();
-app.use(express.static(path.resolve(__dirname + "/../build")));
+// app.use(express.static(path.resolve(__dirname + "/../build")));
 app.disable("x-powered-by");
 app.use(compression());
 app.use(morgan("common"));

@@ -55,9 +55,15 @@ app.get("/api/test", tracksController.test);
 app.get("/about", function (req, res) {
   return res.sendFile(path.resolve(__dirname + "/../build/index.html"));
 });
-app.get("/track/*", function (req, res) {
-  return res.sendFile(path.resolve(__dirname + "/../build/index.html"));
-});
+
+// app.get("/track/*", function (req, res) {
+//   return res.sendFile(path.resolve(__dirname + "/../build/index.html"));
+// });
+
+if (NODE_ENV === "production") {
+  app.use(express.static(`${__dirname}/public/`));
+  app.get(/.*/, (req, res) => res.sendFile(path.resolve(__dirname + "/../public/index.html")));
+}
 
 app.listen(PORT, (err) => {
   if (err) throw err;

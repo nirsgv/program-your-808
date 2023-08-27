@@ -228,6 +228,7 @@
 </template>
 
 <script>
+
 export default {
   name: "SpeedKnob",
   props: {
@@ -251,6 +252,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.knob-control {
+  opacity: 1;
+  position: absolute;
+}
 #knob {
   transform-origin: center;
 }

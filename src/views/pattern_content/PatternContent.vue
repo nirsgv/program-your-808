@@ -4,7 +4,7 @@
       <Title :item="track" />
       <Bars :parts="track.parts" />
       <Player />
-      <Instructions />
+      <Instructions :trackNumber="id"/>
     </div>
     <section v-if="pause" class="loader"></section>
   </div>

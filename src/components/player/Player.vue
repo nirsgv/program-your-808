@@ -10,16 +10,6 @@
         :step="step"
       />
     </div>
-    <div class="pattern-write">
-      <h3 class="title">Pattern Write</h3>
-      <SpeedKnob
-        :value="tempo"
-        @change-speed="changeSpeed"
-        :min="min"
-        :max="max"
-        :step="step"
-      />
-    </div>
   </div>
 </template>
 
@@ -51,6 +41,7 @@ export default {
     }, 10),
 
     changeSpeed(e) {
+      console.log(e);
       this.throttledChangeSpeed(e);
     },
   },
@@ -61,6 +52,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .player {
   display: flex;
   position: relative;

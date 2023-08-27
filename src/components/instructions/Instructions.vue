@@ -1,7 +1,7 @@
 <template>
   <footer class="instructions separator-start main-bottom">
     <div class="credit">
-      <h1 class="number">39</h1>
+      <h1 class="number">{{ trackNumber }}</h1>
       <div class="details">
         <h3 class="title">Program Your 808 Series</h3>
         <h5>By Rob Ricketts</h5>
@@ -38,6 +38,12 @@ export default {
   name: "Instructions",
   components: {
     Button,
+  },
+  props: {
+    trackNumber: {
+      type: Number,
+      default: 1,
+    },
   }
 };
 </script>

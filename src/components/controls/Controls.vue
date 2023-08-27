@@ -4,12 +4,11 @@
       <Icon iconName="prev" />
     </button>
     <button @click="currentlyPlaying ? stopTimer() : startTimer()">
-      <Icon :iconName="currentlyPlaying ? 'pause' : 'play'" />
+      <Icon :iconName="currentlyPlayinge ? 'pause' : 'play'" />
     </button>
     <button @click="next">
       <Icon iconName="next" />
     </button>
-    {{ step }}
   </nav>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <nav class="controls main-bottom">
-    <button @click="prev">
+    <button @click="prev({ currentlyPlaying })">
       <Icon iconName="prev" />
     </button>
     <button @click="currentlyPlaying ? stopTimer() : startTimer()">
       <Icon :iconName="currentlyPlayinge ? 'pause' : 'play'" />
     </button>
-    <button @click="next">
+    <button @click="next({ currentlyPlaying })">
       <Icon iconName="next" />
     </button>
   </nav>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bars separator-start main-bottom">
+  <div class="bars separator-start main-bottom" v-if="!$isMobile()">
     <Bar :first="true" :part="parts[0].part" :step="step" />
     <Bar :part="parts[1].part" :step="step" />
   </div>

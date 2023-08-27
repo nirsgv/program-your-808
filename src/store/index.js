@@ -91,17 +91,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    next: ({ commit }) => {
-      commit("STOP_TIMER");
+    next: ({ commit }, { currentlyPlaying }) => {
+      currentlyPlaying && commit("STOP_TIMER");
       commit("RESTART_PLAYBACK");
       commit("NEXT");
-      commit("START_TIMER");
+      currentlyPlaying && commit("START_TIMER");
     },
-    prev: ({ commit }) => {
-      commit("STOP_TIMER");
+    prev: ({ commit }, { currentlyPlaying }) => {
+      currentlyPlaying && commit("STOP_TIMER");
       commit("RESTART_PLAYBACK");
       commit("PREV");
-      commit("START_TIMER");
+      currentlyPlaying && commit("START_TIMER");
     },
     startTimer: ({ commit }) => {
       commit("START_TIMER");
@@ -112,12 +112,12 @@ export default new Vuex.Store({
     playSound: ({ commit }, { instrument }) => {
       commit("PLAY_SOUND", { instrument });
     },
-    loadTrack: async ({ commit }, { id }) => {
+    loadTrack: async ({ commit }, { id, currentlyPlayin }) => {
       commit("SET_LOADING", { loading: true });
-      commit("STOP_TIMER");
+      currentlyPlayin && commit("STOP_TIMER");
       const track = await getTrack({ id });
       commit("SET_TRACK", { track });
-      commit("START_TIMER");
+      currentlyPlayin && commit("START_TIMER");
       commit("SET_LOADING", { loading: false });
     },
     toggleNote: async ({ commit }, { instrument, col, first }) => {

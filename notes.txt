@@ -2,6 +2,7 @@
      todo
 ---------------
 
+* mobile responsive
 * add links
 * text color
 * playing should start in current step and not the next one
@@ -10,6 +11,8 @@
      done
 ---------------
 
+* mobile detection
+* when switching tracks - start track only when currently playing
 * put in server (deploy)
 * tempo on tracks should be taken into effect
 * the track numbrt should appear in the instructions section

@@ -10,7 +10,6 @@ const axi = axios.create({
 
 const getTrack = async ({ id }) => {
   const { data } = await axi.get(`${baseURL}/track/${id}`);
-  console.log(data);
   return data;
 };
 

@@ -42,7 +42,7 @@ export default {
 
     changeSpeed(e) {
       console.log(e);
-      this.throttledChangeSpeed(e);
+      this.changeTempo({ bpm: Number(e.target.value), currentlyPlaying: this.currentlyPlaying });
     },
   },
   computed: {

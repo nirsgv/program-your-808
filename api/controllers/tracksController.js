@@ -14,7 +14,6 @@ exports.getTracks = async (req, res) => {
 exports.getTrack = async (req, res) => {
   try {
     const track = await Track.findOne({ id: req.params.id });
-    console.log({ track });
     if (!track) {
       return res.status(404).json({ error: "Track not found" });
     }

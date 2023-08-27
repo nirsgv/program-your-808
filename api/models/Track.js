@@ -34,7 +34,7 @@ const trackSchema = new mongoose.Schema({
     type: Number,
     trim: true,
   },
-  bpm: {
+  tempo: {
     type: Number,
     trim: true,
   },

@@ -29,7 +29,7 @@ export default {
     },
   },
   created() {
-    console.log({id: this.id})
+    console.log({ id: this.id });
   },
   mounted() {
     this.loadTrack({ id: this.id });

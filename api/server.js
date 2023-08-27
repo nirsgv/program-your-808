@@ -43,8 +43,7 @@ mongoose.connection.on("error", (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
-console.log({ "process.env.NODE_ENV": DATABASE, PORT });
-console.log({ "process.env": process.env });
+console.log({ "process.env.NODE_ENV": process.env, DATABASE, PORT });
 
 app.get("/api/tracks", tracksController.getTracks);
 app.get("/api/track/:id", tracksController.getTrack);

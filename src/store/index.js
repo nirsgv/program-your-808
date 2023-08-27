@@ -36,7 +36,6 @@ export default new Vuex.Store({
     track: null,
     timer: null,
     step: 0,
-    bpm: 120,
     patternLength: 40,
     loading: false,
   },
@@ -47,7 +46,7 @@ export default new Vuex.Store({
     step: (state) => state.step % 32,
     currentlyPlaying: (state) => !!state.timer,
     isLoading: (state) => state.loading,
-    tempo: (state) => state.bpm,
+    tempo: (state) => state.track.tempo,
   },
   mutations: {
     NEXT: (state) => {
@@ -61,9 +60,7 @@ export default new Vuex.Store({
       }
     },
     START_TIMER: (state) => {
-      // if (state.step === 0) state.step -= 1;
-      state.timer = setInterval(() => (state.step += 1), 15000 / state.bpm);
-      console.log(state.timer);
+      state.timer = setInterval(() => (state.step += 1), 15000 / state.track.tempo);
     },
     STOP_TIMER: (state) => {
       clearInterval(state.timer);
@@ -90,7 +87,7 @@ export default new Vuex.Store({
       state.track.parts = partsCopy;
     },
     CHANGE_TEMPO: (state, { bpm }) => {
-      state.bpm = bpm;
+      state.track.tempo = bpm;
     },
   },
   actions: {
@@ -117,8 +114,10 @@ export default new Vuex.Store({
     },
     loadTrack: async ({ commit }, { id }) => {
       commit("SET_LOADING", { loading: true });
+      commit("STOP_TIMER");
       const track = await getTrack({ id });
       commit("SET_TRACK", { track });
+      commit("START_TIMER");
       commit("SET_LOADING", { loading: false });
     },
     toggleNote: async ({ commit }, { instrument, col, first }) => {

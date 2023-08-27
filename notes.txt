@@ -2,9 +2,7 @@
      todo
 ---------------
 
-* tempo on tracks should be taken into effect
 * add links
-* put in server (deploy)
 * text color
 * playing should start in current step and not the next one
 
@@ -12,6 +10,8 @@
      done
 ---------------
 
+* put in server (deploy)
+* tempo on tracks should be taken into effect
 * the track numbrt should appear in the instructions section
 * throttle the change tempo action
 * changing tempo 

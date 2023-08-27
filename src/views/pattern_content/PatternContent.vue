@@ -28,9 +28,6 @@ export default {
       default: 1,
     },
   },
-  created() {
-    console.log({ id: this.id });
-  },
   mounted() {
     this.loadTrack({ id: this.id });
   },

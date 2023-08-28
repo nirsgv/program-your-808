@@ -231,6 +231,8 @@
 
 export default {
   name: "SpeedKnob",
+  components: {
+  },
   props: {
     value: {
       type: Number,
@@ -247,11 +249,16 @@ export default {
     degree() {
       return (this.value - this.range) * (155 / this.range) * 2;
     },
-  }
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.speed-knob {
+  max-width: 12rem;
+  margin: 0 auto;
+  position: relative;
+}
 .knob-control {
   opacity: 1;
   position: absolute;
@@ -260,16 +267,14 @@ export default {
   transform-origin: center;
 }
 #speed {
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   opacity: 0;
+  cursor: pointer;
 }
 
-.speed-knob {
-  max-width: 12rem;
-  margin: 0 auto;
-}
 </style>

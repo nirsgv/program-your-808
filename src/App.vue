@@ -36,5 +36,6 @@ export default {
 main {
   max-width: 86rem;
   margin: 0 auto;
+  padding: var(--main-padding);
 }
 </style>

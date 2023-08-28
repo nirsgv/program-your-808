@@ -112,12 +112,12 @@ export default new Vuex.Store({
     playSound: ({ commit }, { instrument }) => {
       commit("PLAY_SOUND", { instrument });
     },
-    loadTrack: async ({ commit }, { id, currentlyPlayin }) => {
+    loadTrack: async ({ commit }, { id, currentlyPlaying }) => {
       commit("SET_LOADING", { loading: true });
-      currentlyPlayin && commit("STOP_TIMER");
+      currentlyPlaying && commit("STOP_TIMER");
       const track = await getTrack({ id });
       commit("SET_TRACK", { track });
-      currentlyPlayin && commit("START_TIMER");
+      currentlyPlaying && commit("START_TIMER");
       commit("SET_LOADING", { loading: false });
     },
     toggleNote: async ({ commit }, { instrument, col, first }) => {

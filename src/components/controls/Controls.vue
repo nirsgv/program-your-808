@@ -4,7 +4,7 @@
       <Icon iconName="prev" />
     </button>
     <button @click="currentlyPlaying ? stopTimer() : startTimer()">
-      <Icon :iconName="currentlyPlayinge ? 'pause' : 'play'" />
+      <Icon :iconName="currentlyPlaying ? 'pause' : 'play'" />
     </button>
     <button @click="next({ currentlyPlaying })">
       <Icon iconName="next" />

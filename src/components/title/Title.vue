@@ -1,7 +1,7 @@
 <template>
   <header class="details main-bottom">
     <nav>
-      <ul class="big">
+      <ul class="tracks-nav">
         <Button :checked="true" @click="next" />
         <Button :checked="false" @click="prev" />
       </ul>
@@ -53,11 +53,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.big {
+.tracks-nav {
   padding: 0;
-  width: 12rem;
+  width: var(--tracks-nav-width);
   display: flex;
-  gap: 0 var(--big-gap);
+  gap: 0 var(--tracks-nav-gap);
 }
 
 h4 {
@@ -71,7 +71,7 @@ h4 {
   text-align: left;
   font-weight: 800;
   display: flex;
-  gap: 0 2rem;
+  gap: var(--details-gap);
   & > * {
     &:before {
       content: "";
@@ -91,12 +91,15 @@ header {
   flex-grow: 1;
 }
 .information {
-  flex-grow: 0.3;
 }
 dl {
   /* display: flex; */
 }
 dt {
+  display: none;
   width: 10rem;
+  @media (min-width: 600px) {
+    display: inline-block;
+  }
 }
 </style>

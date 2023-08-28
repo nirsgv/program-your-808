@@ -63,7 +63,6 @@ export default {
 .pattern-write {
   flex-basis: 50%;
   padding-top: 0.8rem;
-  margin: 0 auto;
 }
 .title {
   text-align: left;

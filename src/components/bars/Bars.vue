@@ -1,7 +1,7 @@
 <template>
-  <div class="bars separator-start main-bottom" v-if="!$isMobile()">
-    <Bar :first="true" :part="parts[0].part" :step="step" />
-    <Bar :part="parts[1].part" :step="step" />
+  <div class="bars separator-start main-bottom" :class="{ 'single-bar': $isMobile() }">
+    <Bar :first="true" :part="parts[0].part" :step="step" v-if="!$isMobile() || currentBar === 'a'"/>
+    <Bar :part="parts[1].part" :step="step" v-if="!$isMobile() || currentBar === 'b'"/>
   </div>
 </template>
 
@@ -22,6 +22,9 @@ export default {
     instruments() {
       return INSTRUMENTS;
     },
+    currentBar() {
+      return this.step <= 15 ? 'a' : 'b';
+    }
   },
   methods: {
     ...mapActions(["playSound"]),
@@ -40,7 +43,10 @@ export default {
 .bars {
   display: grid;
   gap: 2.6rem;
-  grid-template-columns: 1fr 1fr;
   position: relative;
+  grid-template-columns: 1fr 1fr;
+  &.single-bar {
+    grid-template-columns: 1fr;
+  };
 }
 </style>

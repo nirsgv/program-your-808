@@ -29,10 +29,10 @@ export default {
     },
   },
   mounted() {
-    this.loadTrack({ id: this.id, currentlyPlayin: this.currentlyPlayin });
+    this.loadTrack({ id: this.id, currentlyPlayin: this.currentlyPlaying });
   },
   computed: {
-    ...mapGetters(["track", "isLoading", "currentlyPlayin"]),
+    ...mapGetters(["track", "isLoading", "currentlyPlaying"]),
     pause() {
       return !this.track || this.isLoading;
     },
@@ -42,7 +42,7 @@ export default {
   },
   watch: {
     id: function () {
-      this.loadTrack({ id: this.id, currentlyPlayin: this.currentlyPlayin });
+      this.loadTrack({ id: this.id, currentlyPlayin: this.currentlyPlaying });
     },
   },
 };

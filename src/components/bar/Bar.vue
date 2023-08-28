@@ -107,7 +107,7 @@ ul {
 
   .pre {
     position: absolute;
-    left: -3.2rem;
+    left: var(--pre-position);
     font-size: 1rem;
     font-weight: 800;
     top: 50%;

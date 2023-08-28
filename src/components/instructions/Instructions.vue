@@ -12,7 +12,7 @@
       <div></div>
       <h3 class="title">Instructions</h3>
       <div class="map">
-        <h5>
+        <h5 class="text">
           Use the diagram above to program the steps into your Roland TR-808
           drum machine, then sit back while memories of your favourite beats
           from the past are brought back to life.
@@ -110,6 +110,12 @@ h5 {
 .keys {
   flex-basis: 50%;
   display: flex;
+}
+.text {
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
 }
 .button {
   padding-bottom: 60%;

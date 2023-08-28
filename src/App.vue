@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{ backgroundColor: main_bkg_color }">
+  <div id="app" :style="{ backgroundColor: main_bkg_color }" class="disable-horizontal-scroll">
     <main>
       <router-view />
     </main>

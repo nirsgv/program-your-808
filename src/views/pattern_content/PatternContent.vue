@@ -50,7 +50,7 @@ export default {
 
 <style scoped lang="scss">
 .content {
-  padding: 4rem 0 0.6rem;
+  padding: var(--content-padding);
   transition: all 0.1s ease-out;
   position: relative;
   &.pause {

@@ -1,5 +1,5 @@
 <template>
-  <nav class="controls main-bottom">
+  <nav class="playback-buttons">
     <button @click="prev({ currentlyPlaying })">
       <Icon iconName="prev" />
     </button>
@@ -30,23 +30,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.controls {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+.playback-buttons {
   display: flex;
-
-  &:after {
-    content: "";
-    display: block;
-    background: var(--black);
-    height: 4px;
-    width: 100%;
-    margin-bottom: 1.8rem;
-    position: absolute;
-    bottom: -3rem;
-  }
-
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   button {
     text-decoration: none;
     color: var(--black);
@@ -54,9 +42,10 @@ export default {
     outline: none;
     border: none;
     cursor: pointer;
+    padding: 2rem;
 
-    &:not(:first-of-type):not(:last-of-type) {
-      margin: 0 1rem;
+    &:hover {
+      color: #444;
     }
   }
 }

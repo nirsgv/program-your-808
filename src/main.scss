@@ -22,6 +22,10 @@ html { font-size: 62.5%; }
   margin-bottom: var(--vertical-margin);
 }
 
+.main-position {
+  max-width: 86rem;
+  margin: 0 auto;
+}
 
 ul {
   list-style: none;

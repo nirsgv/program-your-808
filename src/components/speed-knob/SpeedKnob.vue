@@ -255,9 +255,10 @@ export default {
 
 <style scoped lang="scss">
 .speed-knob {
-  max-width: 10rem;
+  max-width: 7rem;
   margin: 0 auto;
   position: relative;
+  top: 0.8rem;
 }
 .knob-control {
   opacity: 1;

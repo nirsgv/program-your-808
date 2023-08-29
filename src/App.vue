@@ -1,20 +1,18 @@
 <template>
   <div id="app" :style="{ backgroundColor: main_bkg_color }" class="disable-horizontal-scroll">
-    <main>
+    <main class="main-position">
       <router-view />
     </main>
     <Player />
-    <Controls />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { Controls, Player } from "@/components/index.js";
+import { Player } from "@/components/index.js";
 export default {
   name: "App",
   components: {
-    Controls,
     Player,
   },
   computed: {
@@ -36,10 +34,8 @@ export default {
   min-height: 100%;
 }
 main {
-  max-width: 86rem;
-  margin: 0 auto;
   padding: var(--main-padding);
-  padding-bottom: var(--footer-height);
+  padding-bottom: var(--player-height);
   position: relative;
 }
 </style>

@@ -1,20 +1,29 @@
 <template>
   <section class="player separator-start" :style="{ backgroundColor: main_bkg_color }" v-if="tempo">
-    <div class="tempo">
-      <h3 class="title">Tempo</h3>
-      <SpeedKnob
-        :value="tempo"
-        @change-speed="changeSpeed"
-        :min="min"
-        :max="max"
-        :step="step"
-      />
+    <div class="controls main-position">
+      <div class="tempo">
+        <h3 class="title">Tempo</h3>
+        <SpeedKnob
+          :value="tempo"
+          @change-speed="changeSpeed"
+          :min="min"
+          :max="max"
+          :step="step"
+        />
+      </div>
+      <div class="playback">
+        <h3 class="title">Playback</h3>
+        <Controls />
+      </div>
     </div>
+
   </section>
 </template>
 
 <script>
-import { SpeedKnob } from "@/components/index.js";
+import SpeedKnob from "../speed-knob/SpeedKnob.vue";
+import Controls from "../controls/Controls.vue";
+
 import { mapGetters, mapActions } from "vuex";
 import throttle from 'lodash.throttle';
 
@@ -22,6 +31,7 @@ export default {
   name: "Player",
   components: {
     SpeedKnob,
+    Controls,
   },
   data: function () {
     return {
@@ -55,13 +65,27 @@ export default {
   z-index: 10;
   display: flex;
   width: 100%;
-  height: var(-player-height);
+  height: var(--player-height);
   gap: 0 2.6rem;
+  box-shadow: 2px 0px 8px 6px rgba(0, 0, 0, 0.15);
+}
+.controls {
+  display: flex;
+  flex-basis: 86rem;
+  gap: 2.6rem;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
 }
 .tempo,
-.pattern-write {
+.playback {
+  position: relative;
   flex-basis: 50%;
-  padding-top: 0.8rem;
+  .title {
+    position: absolute;
+  }
+}
+.tempo {
+  height: var(--player-height);
 }
 .title {
   text-align: left;

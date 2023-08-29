@@ -255,7 +255,7 @@ export default {
 
 <style scoped lang="scss">
 .speed-knob {
-  max-width: 12rem;
+  max-width: 10rem;
   margin: 0 auto;
   position: relative;
 }

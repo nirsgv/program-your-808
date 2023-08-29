@@ -3,7 +3,6 @@
     <div class="content" :class="{ pause }" v-if="track">
       <Title :item="track" />
       <Bars :parts="track.parts" />
-      <Player />
       <Instructions :trackNumber="id"/>
     </div>
     <section v-if="pause" class="loader"></section>
@@ -11,7 +10,7 @@
 </template>
 
 <script>
-import { Bars, Title, Player, Instructions } from "@/components/index.js";
+import { Bars, Title, Instructions } from "@/components/index.js";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -19,7 +18,6 @@ export default {
   components: {
     Bars,
     Title,
-    Player,
     Instructions,
   },
   props: {

@@ -53,7 +53,7 @@ export default {
   display: flex;
   position: relative;
   width: 100%;
-  height: 16rem;
+  height: var(--footer-height);
   gap: 2.6rem;
 }
 .credit,

@@ -46,7 +46,7 @@ export default new Vuex.Store({
     step: (state) => state.step % 32,
     currentlyPlaying: (state) => !!state.timer,
     isLoading: (state) => state.loading,
-    tempo: (state) => state.track.tempo,
+    tempo: (state) => state.track?.tempo,
   },
   mutations: {
     NEXT: (state) => {

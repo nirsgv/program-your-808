@@ -3,17 +3,19 @@
     <main>
       <router-view />
     </main>
+    <Player />
     <Controls />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { Controls } from "@/components/index.js";
+import { Controls, Player } from "@/components/index.js";
 export default {
   name: "App",
   components: {
     Controls,
+    Player,
   },
   computed: {
     ...mapGetters(["main_bkg_color"]),
@@ -37,5 +39,7 @@ main {
   max-width: 86rem;
   margin: 0 auto;
   padding: var(--main-padding);
+  padding-bottom: var(--footer-height);
+  position: relative;
 }
 </style>

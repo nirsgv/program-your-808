@@ -1,5 +1,5 @@
 <template>
-  <div class="player separator-start main-bottom">
+  <section class="player separator-start" :style="{ backgroundColor: main_bkg_color }" v-if="tempo">
     <div class="tempo">
       <h3 class="title">Tempo</h3>
       <SpeedKnob
@@ -10,7 +10,7 @@
         :step="step"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -22,10 +22,6 @@ export default {
   name: "Player",
   components: {
     SpeedKnob,
-  },
-
-  props: {
-    checked: Boolean,
   },
   data: function () {
     return {
@@ -45,7 +41,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["tempo", "currentlyPlaying"]),
+    ...mapGetters(["tempo", "currentlyPlaying", "main_bkg_color"]),
   },
 };
 </script>
@@ -53,11 +49,14 @@ export default {
 <style scoped lang="scss">
 
 .player {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: 10;
   display: flex;
-  position: relative;
   width: 100%;
-  height: 16rem;
-  gap: 2.6rem;
+  height: var(-player-height);
+  gap: 0 2.6rem;
 }
 .tempo,
 .pattern-write {

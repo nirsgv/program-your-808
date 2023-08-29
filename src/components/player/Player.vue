@@ -38,7 +38,7 @@ export default {
     ...mapActions(["changeTempo"]),
     throttledChangeSpeed: throttle(function(e) {
       this.changeTempo({ bpm: Number(e.target.value), currentlyPlaying: this.currentlyPlaying });
-    }, 10),
+    }, 20),
 
     changeSpeed(e) {
       this.throttledChangeSpeed(e);

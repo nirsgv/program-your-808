@@ -2,8 +2,8 @@
   <header class="details main-bottom">
     <nav>
       <ul class="tracks-nav">
-        <Button :checked="true" @click="next" />
-        <Button :checked="false" @click="prev" />
+        <Button :checked="true" @click="prev({ currentlyPlaying })" />
+        <Button :checked="false" @click="next({ currentlyPlaying })" />
       </ul>
     </nav>
     <header class="title">
@@ -29,7 +29,7 @@
 <script>
 import { Button } from "@/components";
 import { TRACK_INFO } from "@/store/data.js";
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Title",
@@ -45,6 +45,7 @@ export default {
     ...mapActions(["next", "prev"]),
   },
   computed: {
+    ...mapGetters(["currentlyPlaying"]),
     trackInfo() {
       return TRACK_INFO;
     },

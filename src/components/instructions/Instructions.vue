@@ -4,8 +4,8 @@
       <h1 class="number">{{ trackNumber }}</h1>
       <div class="details">
         <h3 class="title">Program Your 808 Series</h3>
-        <h5>By Rob Ricketts</h5>
-        <h5>www.robricketts.co.uk</h5>
+        <h5>Created by <a target="_blank" href="https://github.com/nirsgv/program-your-808" :style="{ color: main_bkg_color }">Nir Segev</a></h5>
+        <h5>Poster design By <a target="_blank" href="https://robricketts.bigcartel.com/" :style="{ color: main_bkg_color }">Rob Ricketts</a></h5>
       </div>
     </div>
     <div class="usage">
@@ -34,6 +34,8 @@
 
 <script>
 import { Button } from '@/components/index.js';
+import { mapGetters } from "vuex";
+
 export default {
   name: "Instructions",
   components: {
@@ -44,6 +46,9 @@ export default {
       type: Number,
       default: 1,
     },
+  },
+  computed: {
+    ...mapGetters(["main_bkg_color"]),
   }
 };
 </script>
@@ -85,6 +90,9 @@ export default {
   .title {
     margin-bottom: 1rem;
   }
+}
+a {
+  text-decoration: none;
 }
 h5 {
   font-size: 1.1rem;

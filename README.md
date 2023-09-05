@@ -27,9 +27,9 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone this repository to your local machine:
 
-    git clone https://github.com/yourusername/program-your-808.git
-    cd program-your-808
-    npm install
+    git clone https://github.com/yourusername/program-your-808.git  
+    cd program-your-808  
+    npm install  
 
 ### Running the Project Locally
 npm run start:client

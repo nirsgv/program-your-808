@@ -5,9 +5,10 @@ import router from "./router";
 import VueMobileDetection from "vue-mobile-detection";
 import "@/reset.scss";
 import "@/main.scss";
-
+import { initializeFonts } from "./fonts.js";
 Vue.config.productionTip = false;
 Vue.use(VueMobileDetection);
+initializeFonts();
 
 new Vue({
   router,

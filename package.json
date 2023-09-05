@@ -21,7 +21,6 @@
     "dotenv": "4.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "fontfaceobserver": "^2.3.0",
     "howler": "^2.2.3",
     "joi": "^14.3.1",
     "lodash.throttle": "^4.1.1",

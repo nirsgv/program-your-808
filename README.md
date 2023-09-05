@@ -1,29 +1,30 @@
-# program-your-808
+# Program Your 808 Vue.js Project
 
-## Project setup
-```
-npm install
-```
+![Program Your 808](https://example.com/path/to/your/project/image.png)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Program Your 808 is a Vue.js project that allows users to explore iconic 808 beats from Rob Ricketts' legendary 'Program Your 808' poster series. You can interact with, play, and modify patterns inspired by the legendary TR-808 Drum Machine. This project is developed using Vue.js, Node/Express, and MongoDB.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Table of Contents
 
-### Run your unit tests
-```
-npm run test:unit
-```
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project Locally](#running-the-project-locally)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Getting Started
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm (Node Package Manager) installed on your system.
+
+### Installation
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/program-your-808.git

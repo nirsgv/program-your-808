@@ -1,5 +1,5 @@
 <template>
-  <section class="player separator-start" :style="{ backgroundColor: main_bkg_color }" v-if="tempo">
+  <section class="player separator-start primary-color-background" v-if="tempo">
     <div class="controls main-position">
       <div class="tempo">
         <h3 class="title">Tempo</h3>
@@ -51,7 +51,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["tempo", "currentlyPlaying", "main_bkg_color"]),
+    ...mapGetters(["tempo", "currentlyPlaying"]),
   },
 };
 </script>

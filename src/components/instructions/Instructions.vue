@@ -4,8 +4,8 @@
       <h1 class="number">{{ trackNumber }}</h1>
       <div class="details">
         <h3 class="title">Program Your 808 Series</h3>
-        <h5>Created by <a target="_blank" href="https://github.com/nirsgv/program-your-808" :style="{ color: main_bkg_color }">Nir Segev</a></h5>
-        <h5>Poster design By <a target="_blank" href="https://robricketts.bigcartel.com/" :style="{ color: main_bkg_color }">Rob Ricketts</a></h5>
+        <h5>Created by <a class="primary-color-link" target="_blank" href="https://github.com/nirsgv/program-your-808">Nir Segev</a></h5>
+        <h5>Poster design By <a class="primary-color-link" target="_blank" href="https://robricketts.bigcartel.com/">Rob Ricketts</a></h5>
       </div>
     </div>
     <div class="usage">

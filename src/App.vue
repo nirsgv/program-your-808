@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{ backgroundColor: main_bkg_color }" class="disable-horizontal-scroll">
+  <div id="app" class="disable-horizontal-scroll primary-color-background">
     <main class="main-position">
       <router-view />
     </main>
@@ -8,15 +8,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import { Player } from "@/components/index.js";
 export default {
   name: "App",
   components: {
     Player,
-  },
-  computed: {
-    ...mapGetters(["main_bkg_color"]),
   },
 };
 </script>
@@ -29,7 +25,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: var(--bkg1);
   transition: background-color 0s ease-in-out;
   min-height: 100%;
 }

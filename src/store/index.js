@@ -60,7 +60,10 @@ export default new Vuex.Store({
       }
     },
     START_TIMER: (state) => {
-      state.timer = setInterval(() => (state.step += 1), 15000 / state.track.tempo);
+      state.timer = setInterval(
+        () => (state.step += 1),
+        15000 / state.track.tempo
+      );
     },
     STOP_TIMER: (state) => {
       clearInterval(state.timer);
@@ -89,6 +92,8 @@ export default new Vuex.Store({
     CHANGE_TEMPO: (state, { bpm }) => {
       state.track.tempo = bpm;
     },
+    SET_CSS_VAR: (state, { color = "#fff" }) =>
+      document.documentElement.style.setProperty("--primary-color", color),
   },
   actions: {
     next: ({ commit }, { currentlyPlaying }) => {
@@ -117,6 +122,7 @@ export default new Vuex.Store({
       currentlyPlaying && commit("STOP_TIMER");
       const track = await getTrack({ id });
       commit("SET_TRACK", { track });
+      commit("SET_CSS_VAR", { color: track.color });
       currentlyPlaying && commit("START_TIMER");
       commit("SET_LOADING", { loading: false });
     },

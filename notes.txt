@@ -1,9 +1,6 @@
 ---------------
      todo
 ---------------
-
-* mobile responsive
-* add links
 * text color
 * playing should start in current step and not the next one
 
@@ -11,6 +8,9 @@
      done
 ---------------
 
+* primary color by css variable to replace computed property
+* mobile responsive
+* add links
 * mobile detection
 * when switching tracks - start track only when currently playing
 * put in server (deploy)

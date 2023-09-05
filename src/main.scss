@@ -55,6 +55,13 @@ dt, dd {
   display: inline-block;
 }
 
+.primary-color-link {
+  color: var(--primary-color);
+}
+
+.primary-color-background {
+  background-color: var(--primary-color);
+}
 
 .disable-horizontal-scroll {
   max-width: 100vw;
@@ -79,6 +86,7 @@ dt, dd {
   --pre-position: -2.3rem;
   --player-height: 10rem;
   --footer-height: 16rem;
+  --primary-color: #fff;
 }
 
 @media (min-width: 600px) {

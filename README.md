@@ -2,7 +2,7 @@
 
 ![Program Your 808](https://example.com/path/to/your/project/image.png)
 
-Welcome to the Program Your 808.
+Welcome to the Program Your 808.  
 This Vue.js project allows you to delve into the iconic 808 beats from Rob Ricketts' legendary 'Program Your 808' poster series.  
 You can interact with, play, and even modify patterns inspired by the iconic TR-808 Drum Machine.  
 This project has been developed using Vue.js for the frontend, Node.js/Express for the backend, and MongoDB as the database.  

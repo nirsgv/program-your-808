@@ -4,8 +4,24 @@
       <h1 class="number">{{ trackNumber }}</h1>
       <div class="details">
         <h3 class="title">Program Your 808 Series</h3>
-        <h5>Created by <a class="primary-color-link" target="_blank" href="https://github.com/nirsgv/program-your-808">Nir Segev</a></h5>
-        <h5>Poster design By <a class="primary-color-link" target="_blank" href="https://robricketts.bigcartel.com/">Rob Ricketts</a></h5>
+        <h5>
+          Created by
+          <a
+            class="primary-color-link"
+            target="_blank"
+            href="https://github.com/nirsgv/program-your-808"
+            >Nir Segev</a
+          >
+        </h5>
+        <h5>
+          Poster design By
+          <a
+            class="primary-color-link"
+            target="_blank"
+            href="https://robricketts.bigcartel.com/"
+            >Rob Ricketts</a
+          >
+        </h5>
       </div>
     </div>
     <div class="usage">
@@ -33,7 +49,7 @@
 </template>
 
 <script>
-import { Button } from '@/components/index.js';
+import { Button } from "@/components/index.js";
 import { mapGetters } from "vuex";
 
 export default {
@@ -49,7 +65,7 @@ export default {
   },
   computed: {
     ...mapGetters(["main_bkg_color"]),
-  }
+  },
 };
 </script>
 
@@ -118,6 +134,9 @@ h5 {
 .keys {
   flex-basis: 50%;
   display: flex;
+  .button {
+    cursor: auto;
+  }
 }
 .text {
   display: none;

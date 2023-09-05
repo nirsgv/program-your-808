@@ -231,8 +231,6 @@
 
 export default {
   name: "SpeedKnob",
-  components: {
-  },
   props: {
     value: {
       type: Number,

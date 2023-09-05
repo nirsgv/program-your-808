@@ -3,8 +3,8 @@
     <button @click="prev({ currentlyPlaying })">
       <Icon iconName="prev" />
     </button>
-    <button @click="currentlyPlaying ? stopTimer() : startTimer()">
-      <Icon :iconName="currentlyPlaying ? 'pause' : 'play'" />
+    <button @click="togglePlay">
+      <Icon :iconName="playLabel" />
     </button>
     <button @click="next({ currentlyPlaying })">
       <Icon iconName="next" />
@@ -22,9 +22,15 @@ export default {
   },
   computed: {
     ...mapGetters(["currentlyPlaying", "step"]),
+    playLabel() {
+      return this.currentlyPlaying ? "pause" : "play";
+    },
   },
   methods: {
     ...mapActions(["next", "prev", "startTimer", "stopTimer", "getStuff"]),
+    togglePlay() {
+      return this.currentlyPlaying ? this.stopTimer() : this.startTimer();
+    },
   },
 };
 </script>
@@ -43,7 +49,6 @@ export default {
     border: none;
     cursor: pointer;
     padding: 2rem;
-
     &:hover {
       color: #444;
     }

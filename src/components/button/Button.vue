@@ -1,5 +1,16 @@
 <template>
-  <div type="checkbox" class="button" :class="{ checked, 'selected-step': selectedStep }" @click="$emit('click')">
+  <div
+    type="checkbox"
+    class="button"
+    :class="{ checked, 'selected-step': selectedStep }"
+    @click="$emit('click')"
+    @mousedown="event => $emit('mousedown', event, checked)"
+    @mouseup="event => $emit('mouseup', event)"
+    @mouseover="event => $emit('mouseover', event, checked)"
+    @touchstart="event => $emit('touchstart', event, checked)"
+    @touchend="event => $emit('touchend', event)"
+    @touchmove="event => $emit('touchmove', event, checked)"
+  >
     <div class="top">
       <span class="light"></span>
     </div>

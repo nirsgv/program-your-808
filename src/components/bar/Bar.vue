@@ -1,6 +1,6 @@
 <!-- eslint-disable no-debugger -->
 <template>
-  <div class="bar">
+  <div class="bar" @mouseleave="stopDragging">
     <h3 class="title">
       {{ title }}
     </h3>
@@ -28,6 +28,12 @@
                 :checked="Boolean(part[instrument][col])"
                 :selected-step="first ? step === col : step === col + 16"
                 @click="toggleNote({ instrument, col, first })"
+                @mousedown="startDragging"
+                @mouseup="stopDragging"
+                @mouseover="handleDrag"
+                @touchstart="startDragging"
+                @touchend="stopDragging"
+                @touchmove="handleTouchMove"
               />
             </li>
           </ul>
@@ -46,6 +52,13 @@ export default {
   name: "Bar",
   components: {
     Button,
+  },
+  data() {
+    return {
+      isDragging: false,
+      adding: false,
+      startItem: null,
+    };
   },
   props: {
     part: Object,
@@ -68,6 +81,41 @@ export default {
   },
   methods: {
     ...mapActions(["toggleNote"]),
+    startDragging(event, checked) {
+      this.isDragging = true;
+      this.adding = !checked;
+      this.startItem = event.target;
+      event.target.click();
+      event.preventDefault();
+    },
+    stopDragging(event) {
+      if (this.startItem === event.target) event.target.click();
+      this.isDragging = false;
+    },
+    handleDrag(event, checked) {
+      if (event.buttons === 0) {
+        return (this.isDragging = false);
+      }
+      if (this.isDragging) {
+        if (this.adding) {
+          if (!checked) {
+            event.target.click();
+          }
+        } else if (checked) {
+          event.target.click();
+        }
+      }
+    },
+    handleTouchMove(event) {
+      if (this.isDragging && this.currentButton !== null) {
+        const touch = event.touches[0];
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        if (element !== null && element !== this.currentButton) {
+          element.click();
+        }
+      }
+    },
   },
 };
 </script>
@@ -112,6 +160,7 @@ ul {
     font-weight: 800;
     top: 50%;
     transform: translateY(-50%);
+    user-select: none;
   }
 }
 

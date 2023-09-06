@@ -3,6 +3,7 @@
 ---------------
 * text color
 * playing should start in current step and not the next one
+* should toggle buttons on drag as well
 
 ---------------
      done

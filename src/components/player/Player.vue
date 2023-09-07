@@ -12,7 +12,7 @@
         />
       </div>
       <div class="playback">
-        <h3 class="title">Playback</h3>
+        <h3 class="title prevent-select">Playback</h3>
         <Controls />
       </div>
     </div>
@@ -75,6 +75,10 @@ export default {
   gap: 2.6rem;
   position: relative;
   grid-template-columns: 1fr 1fr;
+  padding: 0 1rem;
+  @media (min-width: 600px) {
+    padding: 0;
+  }
 }
 .tempo,
 .playback {

@@ -4,12 +4,12 @@
     class="button"
     :class="{ checked, 'selected-step': selectedStep }"
     @click="$emit('click')"
-    @mousedown="event => $emit('mousedown', event, checked)"
-    @mouseup="event => $emit('mouseup', event)"
-    @mouseover="event => $emit('mouseover', event, checked)"
-    @touchstart="event => $emit('touchstart', event, checked)"
-    @touchend="event => $emit('touchend', event)"
-    @touchmove="event => $emit('touchmove', event, checked)"
+    @mousedown.prevent="(e) => $emit('mousedown', e, checked)"
+    @mouseup="(e) => $emit('mouseup', e)"
+    @mouseover="(e) => $emit('mouseover', e, checked)"
+    @touchstart.prevent="(e) => $emit('touchstart', e)"
+    @touchend="(e) => $emit('touchend', e)"
+    @touchmove="(e) => $emit('touchmove', e)"
   >
     <div class="top">
       <span class="light"></span>

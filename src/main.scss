@@ -1,5 +1,9 @@
 html { font-size: 62.5%; } 
-
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
 .ellipsis {
   white-space: nowrap;
   overflow: scroll;
@@ -16,6 +20,10 @@ html { font-size: 62.5%; }
     top: 0;
     background-color: var(--black);
   }
+}
+
+.prevent-select {
+  user-select: none;
 }
 
 .main-bottom {

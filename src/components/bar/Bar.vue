@@ -1,7 +1,7 @@
 <!-- eslint-disable no-debugger -->
 <template>
-  <div class="bar" @mouseleave="stopDragging">
-    <h3 class="title">
+  <div class="bar" @mouseleave="stopDragging" @touchend="touchStop">
+    <h3 class="title prevent-select">
       {{ title }}
     </h3>
     <div class="index">
@@ -18,7 +18,7 @@
           :key="index"
           class="instrument"
         >
-          <span class="pre" v-if="first">{{ instrument }}</span>
+          <span class="pre prevent-select" v-if="first">{{ instrument }}</span>
           <ul class="buttons">
             <li
               v-for="(item, col) in part[instrument]"
@@ -31,9 +31,9 @@
                 @mousedown="startDragging"
                 @mouseup="stopDragging"
                 @mouseover="handleDrag"
-                @touchstart="startDragging"
-                @touchend="stopDragging"
-                @touchmove="handleTouchMove"
+                @touchstart="touchStart"
+                @touchend="touchStop"
+                @touchmove="handleMove"
               />
             </li>
           </ul>
@@ -47,6 +47,11 @@
 import { INSTRUMENTS } from "../../store/data.js";
 import { Button } from "@/components";
 import { mapActions } from "vuex";
+
+const getTouched = (e) => {
+  const touch = e.touches[0];
+  return document.elementFromPoint(touch.clientX, touch.clientY);
+};
 
 export default {
   name: "Bar",
@@ -81,39 +86,54 @@ export default {
   },
   methods: {
     ...mapActions(["toggleNote"]),
-    startDragging(event, checked) {
+    startDragging(e, checked) {
       this.isDragging = true;
       this.adding = !checked;
-      this.startItem = event.target;
-      event.target.click();
-      event.preventDefault();
+      this.startItem = e.target;
+      e.target.click();
     },
-    stopDragging(event) {
-      if (this.startItem === event.target) event.target.click();
+    stopDragging(e) {
+      if (this.startItem === e.target) e.target.click();
       this.isDragging = false;
     },
-    handleDrag(event, checked) {
-      if (event.buttons === 0) {
+    handleDrag(e, checked) {
+      if (e.buttons === 0) {
         return (this.isDragging = false);
       }
       if (this.isDragging) {
         if (this.adding) {
           if (!checked) {
-            event.target.click();
+            e.target.click();
           }
         } else if (checked) {
-          event.target.click();
+          e.target.click();
         }
       }
     },
-    handleTouchMove(event) {
-      if (this.isDragging && this.currentButton !== null) {
-        const touch = event.touches[0];
-        const element = document.elementFromPoint(touch.clientX, touch.clientY);
-
-        if (element !== null && element !== this.currentButton) {
+    touchStart(e) {
+      const element = getTouched(e);
+      if (!element) return;
+      element.click();
+      this.isDragging = true;
+      this.adding = !element.classList.contains("checked");
+      this.startItem = e.target;
+    },
+    touchStop() {
+      this.isDragging = false;
+      this.startItem = null;
+    },
+    handleMove(e) {
+      const element = getTouched(e);
+      if (!element) return;
+      const checked = element.classList.contains("checked");
+      if (element === this.startItem) return;
+      this.startItem = element;
+      if (this.adding) {
+        if (!checked) {
           element.click();
         }
+      } else if (checked) {
+        element.click();
       }
     },
   },

@@ -50,7 +50,6 @@
 
 <script>
 import { Button } from "@/components/index.js";
-import { mapGetters } from "vuex";
 
 export default {
   name: "Instructions",
@@ -63,30 +62,38 @@ export default {
       default: 1,
     },
   },
-  computed: {
-    ...mapGetters(["main_bkg_color"]),
-  },
 };
 </script>
 
 <style scoped lang="scss">
 .instructions {
-  display: flex;
+  display: grid;
   position: relative;
   width: 100%;
   height: var(--footer-height);
   gap: 2.6rem;
+  grid-template-columns: 20rem 1fr;
+  @media (min-width: 600px) {
+    display: flex;
+  }
+
 }
 .credit,
 .usage {
   flex-basis: 50%;
-  padding: 1rem 3rem;
+  padding: 1rem 1.4rem;
   text-align: left;
 }
 .credit {
   background-color: var(--black);
   color: var(--white);
   display: flex;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    padding: 1rem 3rem;
+    flex-direction: row;
+  }
+
 }
 .details {
   text-align: left;
@@ -118,8 +125,11 @@ h5 {
   padding-top: 0;
 }
 .number {
-  flex-basis: 10rem;
   text-align: left;
+  flex-basis: 2rem;
+  @media (min-width: 600px) {
+    flex-basis: 10rem;
+  }
 }
 .map {
   display: flex;
@@ -134,6 +144,10 @@ h5 {
 .keys {
   flex-basis: 50%;
   display: flex;
+  gap: 2rem;
+  @media (min-width: 600px) {
+    gap: 0;
+  }
   .button {
     cursor: auto;
   }
@@ -145,14 +159,25 @@ h5 {
   }
 }
 .button {
-  padding-bottom: 60%;
+  padding-bottom: 160%;
+  @media (min-width: 600px) {
+    padding-bottom: 60%;
+  }
 }
 .key {
-  margin-right: 2.6rem;
+  flex-direction: column;
+  width: 3rem;
   display: flex;
-  flex-basis: 8rem;
+  gap: 0.4rem;
+  @media (min-width: 600px) {
+    flex-direction: row;
+    width: 8rem;
+    gap: 0;
+  }
   h5 {
-    margin-left: 1rem;
+    @media (min-width: 600px) {
+      margin-left: 1rem;
+    }
     white-space: nowrap;
   }
 }
